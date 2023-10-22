@@ -463,9 +463,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6733177361254619370, guid: 08bc0500e8801ce47af9bbf7949f039c, type: 3}
+      propertyPath: m_Name
+      value: flashlight
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 08bc0500e8801ce47af9bbf7949f039c, type: 3}
       propertyPath: m_Name
       value: Cylinder.002 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316992658331686828, guid: 08bc0500e8801ce47af9bbf7949f039c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.854
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316992658331686828, guid: 08bc0500e8801ce47af9bbf7949f039c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.98
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 08bc0500e8801ce47af9bbf7949f039c, type: 3}
       propertyPath: m_Controller
