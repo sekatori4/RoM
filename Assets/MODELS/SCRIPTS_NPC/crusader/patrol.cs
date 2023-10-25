@@ -8,6 +8,8 @@ public class patrol : StateMachineBehaviour
     GameObject[] waypoint;
     int currentWP;
 
+    
+
     private void Awake()
     {
         waypoint = GameObject.FindGameObjectsWithTag("waypoint");
@@ -18,7 +20,9 @@ public class patrol : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        NPC = animator.gameObject;
+       
+        
+         NPC = animator.gameObject;
         currentWP = 0;
     }
 
