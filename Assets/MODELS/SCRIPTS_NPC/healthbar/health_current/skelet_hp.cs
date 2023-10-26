@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class skelet_hp : MonoBehaviour
 {
-    public int HP = 100;
+    public int MAX_HP = 100;
+    public int curHP1 = 100;
     public Animator animator;
-    public void TakeDamage(int damageAmount)
+    
+    
+    
+    public void TakeDamage(int damage)
     {
-        HP -= damageAmount;
-        if (HP < 0)
+        
+        curHP1 -= damage;
+        Debug.Log(damage);
+        if ( curHP1< 0)
         {
             //что делать при смерти
             GetComponent<Collider>().enabled = false;

@@ -5,16 +5,20 @@ using UnityEngine;
 public class damage_item : MonoBehaviour
 {
 
+    public weapon_abstract wa;
 
-    public int damageAmount = 20;
+    
 
-
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
+        Debug.Log("lox");
+        
         if (other.tag == "skelet")
 
         {
-            other.GetComponent<skelet_hp>().TakeDamage(damageAmount);
+            Debug.Log("lox2");
+
+            other.GetComponent<skelet_hp>().TakeDamage(wa.damage);
 
         }
 

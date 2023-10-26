@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class walk_skeleton : StateMachineBehaviour
 {
     NavMeshAgent agent;
-    Transform castle;
+    GameObject[] castle;
     float attackRange = 5;
 
 
@@ -16,17 +16,52 @@ public class walk_skeleton : StateMachineBehaviour
         agent = animator.GetComponent<NavMeshAgent>();
         agent.speed = 5;
         List<Transform> targets = new List<Transform>();
-        castle = GameObject.FindGameObjectWithTag("castle").transform;
+
+
+
+        castle = GameObject.FindGameObjectsWithTag("castle");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.SetDestination(castle.position);
-        float distance = Vector3.Distance(animator.transform.position, castle.position);
-        if (distance < attackRange)
-            animator.SetBool("attack", true);
 
+
+        int blizh = 0;
+        for (int i = 0; i < castle.Length; i++)
+        {
+
+            if (Vector3.Distance(castle[i].transform.position, agent.transform.position) < Vector3.Distance(castle[blizh].transform.position, agent.transform.position))
+            {
+               // float a = Vector3.Distance(agent.transform.localScale, agent.transform.localScale);
+                blizh = i;
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        agent.SetDestination(castle[blizh].transform.position);
+        float distance = Vector3.Distance(animator.transform.position, castle[blizh].transform.position);
+        if (distance < attackRange)
+           
+        {
+            animator.SetBool("attack", true);
+            agent.SetDestination(agent.transform.position);
+        }
+        else
+        {
+            animator.SetBool("attack", false);
+        }
 
            }
 

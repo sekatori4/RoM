@@ -52,6 +52,23 @@ public class PatrolBehaviour : StateMachineBehaviour
         if (agent.remainingDistance <= agent.stoppingDistance)
             agent.SetDestination(waypoint[Random.Range(0, waypoint.Length)].transform.position);
 
+        // ----ближайшая точка>>>>>      
+
+        //  int blizh = 0;
+        //  for (int i = 0; i < waypoint.Length; i++)
+        //  {
+
+        //    if (Vector3.Distance(waypoint[i].transform.position, agent.transform.position) < Vector3.Distance(waypoint[blizh].transform.position, agent.transform.position))
+        //    {
+
+        //        blizh = i;
+        //    }
+
+
+        //}
+
+
+
         timer += Time.deltaTime;
         if (timer > 10)
             animator.SetBool("ispatrolling", false);
