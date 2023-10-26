@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class skelet_hp : MonoBehaviour
 {
@@ -18,7 +20,11 @@ public class skelet_hp : MonoBehaviour
         if ( curHP1< 0)
         {
             //что делать при смерти
-            GetComponent<Collider>().enabled = false;
+            NavMeshAgent.Destroy(animator);
+           
+            Destroy(transform.gameObject);      
+
+            
         }
         else
         {
