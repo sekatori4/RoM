@@ -9,6 +9,10 @@ public class healthbar_front_camera : MonoBehaviour
     
     void LateUpdate()
     {
-        transform.LookAt(cam.position);
+        // transform.LookAt(cam.position);
+
+        //transform.rotation = Quaternion.LookRotation(transform.position - cam.transform.position);
+
+        transform.rotation = cam.transform.rotation;
     }
 }
