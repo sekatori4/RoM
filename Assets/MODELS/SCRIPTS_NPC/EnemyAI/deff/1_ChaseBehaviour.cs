@@ -6,9 +6,8 @@ using UnityEngine.AI;
 public class ChaseBehaviour : StateMachineBehaviour
 {
     NavMeshAgent agent;
-    Transform skelet;
-    float attackRange = 5;
-   
+        float attackRange = 5;
+             GameObject[] enemy;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -16,20 +15,64 @@ public class ChaseBehaviour : StateMachineBehaviour
         agent = animator.GetComponent<NavMeshAgent>();
         agent.speed = 10;
 
-        skelet = GameObject.FindGameObjectWithTag("skelet").transform;
+        
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.SetDestination(skelet.position);
-        float distance = Vector3.Distance(animator.transform.position, skelet.position);
-        if (distance < attackRange)
-            animator.SetBool("isattack", true);
+
+        enemy = GameObject.FindGameObjectsWithTag("skelet");
+
+        if (enemy.Length > 0)
+        {
+
+            int blizh = 0;
+            for (int i = 0; i < enemy.Length; i++)
+            {
+
+                if (Vector3.Distance(enemy[i].transform.position, agent.transform.position) < Vector3.Distance(enemy[blizh].transform.position, agent.transform.position))
+                {
+                    // float a = Vector3.Distance(agent.transform.localScale, agent.transform.localScale);
+                    blizh = i;
+                }
+
+
+            }
+
+
+
+            agent.SetDestination(enemy[blizh].transform.position);
+            float distance2 = Vector3.Distance(animator.transform.position, enemy[blizh].transform.position);
+            if (distance2 < attackRange)
+                animator.SetBool("isattack", true);
+
+
+            if (distance2 > 40)
+                animator.SetBool("isaggro", false);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+       
+
+
+
 
         
-        if (distance > 40)
-            animator.SetBool("isaggro", false);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

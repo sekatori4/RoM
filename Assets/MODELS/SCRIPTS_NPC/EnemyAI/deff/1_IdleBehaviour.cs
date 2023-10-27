@@ -5,25 +5,64 @@ using UnityEngine;
 public class IdleBehaviour : StateMachineBehaviour
 {
     float timer;
-    Transform player;
+    GameObject[] enemy;
     float chaseRange = 20;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer = 0;
-        player = GameObject.FindGameObjectWithTag("skelet").transform;
+        
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        timer += Time.deltaTime;
-        if (timer > 5)
-            animator.SetBool("ispatrolling", true);
 
-        float distance = Vector3.Distance(animator.transform.position, player.position);
-        if (distance < chaseRange)
-            animator.SetBool("isaggro", true);
+        enemy = GameObject.FindGameObjectsWithTag("skelet");
+
+        if (enemy.Length > 0)
+        {
+            int blizh = 0;
+            for (int i = 0; i < enemy.Length; i++)
+            {
+
+                if (Vector3.Distance(enemy[i].transform.position, animator.transform.position) < Vector3.Distance(enemy[blizh].transform.position, animator.transform.position))
+                {
+
+                    blizh = i;
+                }
+
+
+            }
+
+
+            timer += Time.deltaTime;
+            if (timer > 5)
+                animator.SetBool("ispatrolling", true);
+
+            float distance = Vector3.Distance(animator.transform.position, enemy[blizh].transform.position);
+            if (distance < chaseRange)
+                animator.SetBool("isaggro", true);
+
+
+
+
+        }
+
+
+
+        else
+        {
+
+            timer += Time.deltaTime;
+            if (timer > 5)
+                animator.SetBool("ispatrolling", true);
+
+
+
+        }
+
+        
 
     }
 
