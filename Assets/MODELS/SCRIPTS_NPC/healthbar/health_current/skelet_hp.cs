@@ -11,7 +11,7 @@ public class skelet_hp : MonoBehaviour
     public Animator animator;
 
     [SerializeField] private Slider healthSlider;
-
+    
 
 
     private void Start()
@@ -39,18 +39,21 @@ public class skelet_hp : MonoBehaviour
         if ( curHP1<= 0)
         {
             //что делать при смерти
-            // NavMeshAgent.Destroy(animator);
+            
+            
+            NavMeshAgent.Destroy(animator);
 
-
-            Destroy(transform.gameObject, 4);
-            gameObject.transform.tag = "corpse";
-
-            animator.SetBool("isdie", true);
 
             
+            gameObject.transform.tag = "corpse";
+
+            gameObject.GetComponentInChildren<Canvas>().enabled = false;
+
+            
+            Destroy(transform.gameObject, 4);
 
 
-                
+
         }
         else
         {
@@ -64,6 +67,8 @@ public class skelet_hp : MonoBehaviour
     private void OnGUI()
     {
         {
+            
+                  
             healthSlider.value = curHP1;
 
         }
