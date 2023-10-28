@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class ChaseBehaviour : StateMachineBehaviour
 {
     NavMeshAgent agent;
-        float attackRange = 5;
+        float attackRange = 4;
              GameObject[] enemy;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state

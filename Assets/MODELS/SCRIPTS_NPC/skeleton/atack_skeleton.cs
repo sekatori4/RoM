@@ -7,13 +7,13 @@ public class atack_skeleton : StateMachineBehaviour
 {
     GameObject[] castle;
     NavMeshAgent agent;
-    
-
+    NavMeshObstacle obtekat;
+    float attackRange = 5;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-
+        obtekat = animator.GetComponent<NavMeshObstacle>();                   //---<<<<<----------------   ÎÁÒÅÊÀÒÜ
         agent = animator.GetComponent<NavMeshAgent>();
         castle = GameObject.FindGameObjectsWithTag("castle");
     }
@@ -26,7 +26,7 @@ public class atack_skeleton : StateMachineBehaviour
         for (int i = 0; i < castle.Length; i++)
         {
 
-            if (Vector3.Distance(castle[i].transform.position, agent.transform.position) < Vector3.Distance(castle[blizh].transform.position, agent.transform.position))
+            if (Vector3.Distance(castle[i].transform.position, animator.transform.position) < Vector3.Distance(castle[blizh].transform.position, animator.transform.position))
             {
                 blizh = i;
             }
@@ -38,10 +38,24 @@ public class atack_skeleton : StateMachineBehaviour
 
 
 
-        animator.transform.LookAt(castle[blizh].transform);
+        animator.transform.LookAt(castle[blizh].transform);  //-----<<< Ñìîòðèò ÍÀ ÖÅËÜ
+       
+        
+        //--------------ÂÊËÞ×ÈÒÜ ÍÀÂÌÅØ--ÎÁÒÝÉÊË
+        agent.enabled = false;
+        obtekat.enabled = true;
+        
+        //-------------
+
         float distance = Vector3.Distance(animator.transform.position, castle[blizh].transform.position);
-        if (distance > 5)
-            animator.SetBool("attack", false);
+        if (distance > attackRange)
+
+            //--------------ÎÁÒÝÉÊË---ÂÛÊË
+
+        
+            
+
+        animator.SetBool("attack", false);  //------> ïåðåõîä íà walk_skeleton
 
         
     }

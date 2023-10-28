@@ -8,6 +8,7 @@ TagManager:
   - castle
   - skelet
   - corpse
+  - DAMAGE_REG
   layers:
   - Default
   - TransparentFX

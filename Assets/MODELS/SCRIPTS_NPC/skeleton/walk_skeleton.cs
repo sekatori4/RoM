@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class walk_skeleton : StateMachineBehaviour
 {
     NavMeshAgent agent;
+    NavMeshObstacle obtekat;
     GameObject[] castle;
     float attackRange = 5;
 
@@ -14,10 +15,13 @@ public class walk_skeleton : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent = animator.GetComponent<NavMeshAgent>();
+
+        obtekat = animator.GetComponent<NavMeshObstacle>();
         agent.speed = 5;
         List<Transform> targets = new List<Transform>();
 
 
+       
 
         castle = GameObject.FindGameObjectsWithTag("castle");
     }
@@ -45,18 +49,22 @@ public class walk_skeleton : StateMachineBehaviour
 
 
 
+        obtekat.enabled = false;                          //-----------  Œ¡“≈ ¿“‹ ¬€ À
+        agent.enabled = true;                             //-----------  ¿√≈Õ“  ¬ À
 
 
 
 
-
-        agent.SetDestination(castle[blizh].transform.position);
+        agent.SetDestination(castle[blizh].transform.position);           /// <<<<-------------  ¿√≈Õ“ »ƒ≈“   ¡À»∆¿…ÿ≈Ã” ¬–¿√”
+        
+        
         float distance = Vector3.Distance(animator.transform.position, castle[blizh].transform.position);
         if (distance < attackRange)
            
         {
+            
             animator.SetBool("attack", true);
-            agent.SetDestination(agent.transform.position);
+            
         }
         else
         {

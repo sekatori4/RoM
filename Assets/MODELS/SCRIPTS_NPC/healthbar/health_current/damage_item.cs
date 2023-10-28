@@ -11,16 +11,17 @@ public class damage_item : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
-        Debug.Log("lox");
+        Debug.Log("OnTrigger---> "+other.tag);
        
         if (other.tag == "skelet")
 
         {
             Debug.Log("lox2");
 
-            other.GetComponent<skelet_hp>().TakeDamage(wa.damage);
+            other.GetComponentInParent<skelet_hp>().TakeDamage(wa.damage);
             
         }
+       
 
 
     }
