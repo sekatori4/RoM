@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class healthbar_front_camera : MonoBehaviour
 {
-    public Transform cam;
     
     
+    
+    private void Start()
+    {
+        
+    }
+
     void LateUpdate()
     {
-        // transform.LookAt(cam.position);
-
-        //transform.rotation = Quaternion.LookRotation(transform.position - cam.transform.position);
-
-        transform.rotation = cam.transform.rotation;
+        transform.rotation = Camera.main.transform.rotation;
+        
     }
 }

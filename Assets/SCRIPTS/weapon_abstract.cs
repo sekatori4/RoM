@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class weapon_abstract : MonoBehaviour 
 {
-   public int range;
+    public int range;
     public int damage;
     public int speed_atack;
     public int armor_phis;

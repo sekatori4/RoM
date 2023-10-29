@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,7 @@ public class skelet_hp : MonoBehaviour
     public Animator animator;
     bool pidor;
 
-    public GameObject skelet_poivlenie;
+    [SerializeField] GameObject skelet_poivlenie;
 
     [SerializeField] private Slider healthSlider;
     [SerializeField] GameObject WEAPON;
@@ -209,6 +210,8 @@ public class skelet_hp : MonoBehaviour
         //-------------------------->>>> появление КОСТЕЙ
 
         GameObject clone_corpse  =  Instantiate(skelet_poivlenie, transform.position, transform.rotation);
+        
+
         clone_corpse.SetActive(true);
         //-----------------------------
 

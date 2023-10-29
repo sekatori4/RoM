@@ -9,7 +9,13 @@ public class damage_item : MonoBehaviour
     
     [SerializeField] private AudioSource soundSource;
     [SerializeField] private AudioClip hitSkelet;
-    public weapon_abstract wa;
+    
+    
+    [SerializeField] public weapon_abstract wa;   
+
+    
+    
+    
     public GameObject effect_popadania;
 
 
@@ -52,6 +58,8 @@ public class damage_item : MonoBehaviour
 
             if (enemy1 != null)
             {
+                
+                
                 enemy1.TakeDamage(wa.damage);
 
             }
