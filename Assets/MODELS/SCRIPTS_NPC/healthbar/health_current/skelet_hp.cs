@@ -22,7 +22,7 @@ public class skelet_hp : MonoBehaviour
     public GameObject skelet_poivlenie;
 
     [SerializeField] private Slider healthSlider;
-
+    [SerializeField] GameObject WEAPON;
 
 
 
@@ -56,6 +56,15 @@ public class skelet_hp : MonoBehaviour
 
         //-----Коллайдер ВКЛ ОСНОВНОМУ (ФИКСАЦИЯ ПОЛУЧЕНИЯ УРОНА)
         gameObject.GetComponent<BoxCollider>().enabled = true;
+
+        //--------включить коллайдер оружию
+
+
+        WEAPON.GetComponent<BoxCollider>().enabled = true;
+
+
+        
+
 
 
 
@@ -127,6 +136,13 @@ public class skelet_hp : MonoBehaviour
             //-------------Коллайдер ВЫКЛ ГЛАВНОМУ
 
             gameObject.GetComponent<BoxCollider>().enabled = false;
+
+
+            //--------вЫключить коллайдер оружию
+
+
+            WEAPON.GetComponent<BoxCollider>().enabled = false;
+
 
 
 

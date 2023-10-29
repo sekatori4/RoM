@@ -5,23 +5,81 @@ using UnityEngine;
 public class damage_item : MonoBehaviour
 {
 
+    [SerializeField] public string enemy_tag;
+    
+    [SerializeField] private AudioSource soundSource;
+    [SerializeField] private AudioClip hitSkelet;
     public weapon_abstract wa;
-
+    public GameObject effect_popadania;
 
 
     private void OnTriggerEnter (Collider other)
     {
         Debug.Log("OnTrigger---> "+other.tag);
-       
-        if (other.tag == "skelet")
+
+        
+
+
+
+
+
+
+        if (other.tag == enemy_tag)
 
         {
-            Debug.Log("lox2");
+
+
+
+
+
+            //---------------------->>>> точка соприкосновения с коллайдером
+
+
+            //RaycastHit hit;
+            //if (Physics.Raycast(transform.position, transform.forward, out hit))
+            //{
+            //    Debug.Log("Point of contact: " + hit.point);
+            //}
+            ////------------------вызов в точке соприкосновения префаба ХИТ
+
+
+            //GameObject HIT_obj = Instantiate(effect_popadania, hit.point, transform.rotation);
+
+
+            Explode();
+
+
 
             other.GetComponentInParent<skelet_hp>().TakeDamage(wa.damage);
+
             
+
+
+
         }
        
+
+        void Explode()
+
+        {
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit))
+            {
+                Debug.Log("Point of contact: " + hit.point);
+            }
+            //------------------вызов в точке соприкосновения префаба ХИТ
+
+            soundSource.PlayOneShot(hitSkelet);
+
+
+
+
+            var effect = Instantiate(effect_popadania, transform.position, Quaternion.identity); //Создается экземпляр созданного префаба на том месте, куда попала пуля.
+            
+
+
+        }
 
 
     }
