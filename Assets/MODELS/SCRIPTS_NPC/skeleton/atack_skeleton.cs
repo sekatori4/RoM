@@ -13,51 +13,65 @@ public class atack_skeleton : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        obtekat = animator.GetComponent<NavMeshObstacle>();                   //---<<<<<----------------   ÎÁÒÅÊÀÒÜ
-        agent = animator.GetComponent<NavMeshAgent>();
-        castle = GameObject.FindGameObjectsWithTag("castle");
+        
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
-        int blizh = 0;
-        for (int i = 0; i < castle.Length; i++)
+
+        obtekat = animator.GetComponent<NavMeshObstacle>();                   //---<<<<<----------------   ÎÁÒÅÊÀÒÜ
+        agent = animator.GetComponent<NavMeshAgent>();
+        castle = GameObject.FindGameObjectsWithTag("castle");
+
+        if (castle.Length < 1)
         {
-
-            if (Vector3.Distance(castle[i].transform.position, animator.transform.position) < Vector3.Distance(castle[blizh].transform.position, animator.transform.position))
-            {
-                blizh = i;
-            }
-
+            animator.SetBool("atack", false);
 
         }
 
+        else
+        {
+
+
+
+            int blizh = 0;
+            for (int i = 0; i < castle.Length; i++)
+            {
+
+                if (Vector3.Distance(castle[i].transform.position, animator.transform.position) < Vector3.Distance(castle[blizh].transform.position, animator.transform.position))
+                {
+                    blizh = i;
+                }
+
+
+            }
 
 
 
 
-        animator.transform.LookAt(castle[blizh].transform);  //-----<<< Ñìîòðèò ÍÀ ÖÅËÜ
-       
-        
-        //--------------ÂÊËÞ×ÈÒÜ ÍÀÂÌÅØ--ÎÁÒÝÉÊË
-        agent.enabled = false;
-        obtekat.enabled = true;
-        
-        //-------------
 
-        float distance = Vector3.Distance(animator.transform.position, castle[blizh].transform.position);
-        if (distance > attackRange)
+            animator.transform.LookAt(castle[blizh].transform);  //-----<<< Ñìîòðèò ÍÀ ÖÅËÜ
 
-            //--------------ÎÁÒÝÉÊË---ÂÛÊË
 
-        
-            
+            //--------------ÂÊËÞ×ÈÒÜ ÍÀÂÌÅØ--ÎÁÒÝÉÊË
+            agent.enabled = false;
+            obtekat.enabled = true;
 
-        animator.SetBool("attack", false);  //------> ïåðåõîä íà walk_skeleton
+            //-------------
 
-        
+            float distance = Vector3.Distance(animator.transform.position, castle[blizh].transform.position);
+            if (distance > attackRange)
+
+                //--------------ÎÁÒÝÉÊË---ÂÛÊË
+
+
+
+
+                animator.SetBool("attack", false);  //------> ïåðåõîä íà walk_skeleton
+
+
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

@@ -1,18 +1,13 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.UI;
-using System.Net.Http.Headers;
+
 
 
 
 //       using UnityEngine.UIElements;
 
-public class skelet_hp2 : MonoBehaviour
+public class skelet_hp : MonoBehaviour
 {
     public int MAX_HP = 100;
     public int curHP1;
@@ -22,7 +17,7 @@ public class skelet_hp2 : MonoBehaviour
     public GameObject skelet_poivlenie;
 
     [SerializeField] private Slider healthSlider;
-
+    [SerializeField] GameObject WEAPON;
 
 
 
@@ -57,6 +52,14 @@ public class skelet_hp2 : MonoBehaviour
         //----- оллайдер ¬ Ћ ќ—Ќќ¬Ќќћ” (‘» —ј÷»я ѕќЋ”„≈Ќ»я ”–ќЌј)
         gameObject.GetComponent<BoxCollider>().enabled = true;
 
+        //--------включить коллайдер оружию
+
+        WEAPON.GetComponent<BoxCollider>().enabled = true;
+
+
+        
+
+
 
 
     }
@@ -84,10 +87,11 @@ public class skelet_hp2 : MonoBehaviour
         
         curHP1 -= damage;
 
-        
-        
+                
         
         Debug.Log(damage);
+       
+        
         if ( curHP1<= 0)
         {
             //что делать при смерти
@@ -129,6 +133,13 @@ public class skelet_hp2 : MonoBehaviour
             gameObject.GetComponent<BoxCollider>().enabled = false;
 
 
+            //--------вџключить коллайдер оружию
+
+
+            WEAPON.GetComponent<BoxCollider>().enabled = false;
+
+
+
 
             //---------->>>  я и все мои дети “Ё√»--> “–”ѕџ
 
@@ -151,8 +162,7 @@ public class skelet_hp2 : MonoBehaviour
             StartCoroutine(trup_erase(5f));
            
         }
-       
-        
+               
         else
         {
             //играть эффект попадани€
@@ -190,11 +200,8 @@ public class skelet_hp2 : MonoBehaviour
 
         // ---------------->>>> погружение под землю
 
-
         pidor = true;
         
-
-
 
         //------------ уничтожить объект через 4 секи (мен€етс€)        
 
@@ -212,7 +219,16 @@ public class skelet_hp2 : MonoBehaviour
 
 
 
-    
+    private void OnGUI()
+    {
+        {
+            
+                  
+            healthSlider.value = curHP1;
+
+        }
+    }
+
 
 
 

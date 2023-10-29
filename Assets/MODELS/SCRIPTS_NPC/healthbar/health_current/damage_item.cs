@@ -48,11 +48,20 @@ public class damage_item : MonoBehaviour
 
             Explode();
 
+            HP_Death_no_rigi enemy1 = other.GetComponentInParent<HP_Death_no_rigi>();
 
+            if (enemy1 != null)
+            {
+                enemy1.TakeDamage(wa.damage);
 
-            other.GetComponentInParent<skelet_hp>().TakeDamage(wa.damage);
+            }
+            else
+            {
+                other.GetComponentInParent<skelet_hp>().TakeDamage(wa.damage);
 
-            
+            }
+           
+
 
 
 
