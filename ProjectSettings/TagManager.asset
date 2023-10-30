@@ -9,6 +9,9 @@ TagManager:
   - skelet
   - corpse
   - DAMAGE_REG
+  - WA
+  - 1wave
+  - 1boss
   layers:
   - Default
   - TransparentFX
