@@ -953,9 +953,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4861dd948c170454c903b7fb02f29e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy_tag: castle
+  enemy_tag: deff
+  enemy_tag2: 
   soundSource: {fileID: 3842322938348450226}
-  hitSkelet: {fileID: 8300000, guid: 3cc71fa86fd2f6b47829fd60e0a4b58a, type: 3}
+  hitVRAG: {fileID: 8300000, guid: bd8a1c12f6952ca4a8dde9c00bb057a1, type: 3}
   wa: {fileID: 0}
   effect_popadania: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
 --- !u!82 &3842322938348450226
@@ -2406,8 +2407,8 @@ Transform:
   m_GameObject: {fileID: 8029002871826133656}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.59, y: -0.11, z: 10.53}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: -6.55, y: -0.11, z: 10.53}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6585983817116459136}

@@ -7,8 +7,10 @@ public class walk_skeleton : StateMachineBehaviour
 {
     NavMeshAgent agent;
     NavMeshObstacle obtekat;
+    GameObject[] deff;
     GameObject[] castle;
-    float attackRange = 5;
+    GameObject[] enemy;
+    float attackRange;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -18,24 +20,35 @@ public class walk_skeleton : StateMachineBehaviour
 
         obtekat = animator.GetComponent<NavMeshObstacle>();
         agent.speed = 5;
-        List<Transform> targets = new List<Transform>();
+                                    // List<Transform> targets = new List<Transform>();
 
-
+               
        
-
-        castle = GameObject.FindGameObjectsWithTag("castle");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        deff = GameObject.FindGameObjectsWithTag("deff");
+        castle = GameObject.FindGameObjectsWithTag("castle");
 
+        if (deff.Length > 0)
+
+        {
+            attackRange = 3;
+            enemy = deff;
+        }
+            else
+        {
+            attackRange = 7f;
+            enemy = castle;
+        }
 
         int blizh = 0;
-        for (int i = 0; i < castle.Length; i++)
+        for (int i = 0; i < enemy.Length; i++)
         {
 
-            if (Vector3.Distance(castle[i].transform.position, agent.transform.position) < Vector3.Distance(castle[blizh].transform.position, agent.transform.position))
+            if (Vector3.Distance(enemy[i].transform.position, agent.transform.position) < Vector3.Distance(enemy[blizh].transform.position, agent.transform.position))
             {
                // float a = Vector3.Distance(agent.transform.localScale, agent.transform.localScale);
                 blizh = i;
@@ -55,10 +68,10 @@ public class walk_skeleton : StateMachineBehaviour
 
 
 
-        agent.SetDestination(castle[blizh].transform.position);           /// <<<<-------------  ÀÃÅÍÒ ÈÄÅÒ Ê ÁËÈÆÀÉØÅÌÓ ÂÐÀÃÓ
+        agent.SetDestination(enemy[blizh].transform.position);           /// <<<<-------------  ÀÃÅÍÒ ÈÄÅÒ Ê ÁËÈÆÀÉØÅÌÓ ÂÐÀÃÓ
         
         
-        float distance = Vector3.Distance(animator.transform.position, castle[blizh].transform.position);
+        float distance = Vector3.Distance(animator.transform.position, enemy[blizh].transform.position);
         if (distance < attackRange)
            
         {

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   k_AssetVersion: 3
   m_RenderingLayerNames:
-  - Default
-  - Layer 1
-  - Layer 2
+  - TERRAIN
+  - GLOBAL(STATIC) LIGHT
+  - DINAMIC LIGHT
   - Layer 3
   m_ValidRenderingLayers: 15
   lightLayerName0: 

@@ -24,9 +24,11 @@ public class HP_Death_no_rigi : MonoBehaviour
 
     public void Start()
     {
-       
-        
-        
+
+        gameObject.GetComponent<BoxCollider>().enabled = true;  // ÂÊË êîëëàéäåğ ÎÑÍÎÂÍÎÉ
+        WEAPON.GetComponent<BoxCollider>().enabled = true;    // ÂÊË ÊÎËËÀÉÄÅĞ ÎĞÓÆÈŞ
+
+
         curHP1 = MAX_HP;
         healthSlider.maxValue = MAX_HP;
         healthSlider.maxValue = MAX_HP;

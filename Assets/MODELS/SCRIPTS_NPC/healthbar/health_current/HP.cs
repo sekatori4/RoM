@@ -44,7 +44,7 @@ public class skelet_hp : MonoBehaviour
 
 
 
-        //--------- Êמככאיהונû ִ־׳ֵ׀ֵָֽ ֲÛÊֻ
+        //--------- Êמככאיהונû ֲֵׁ ֲÛÊֻ
 
         Collider[] colOFF = GetComponentsInChildren<Collider>();
 

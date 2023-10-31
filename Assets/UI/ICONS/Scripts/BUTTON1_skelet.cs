@@ -20,6 +20,10 @@ public class BUTTON1_skelet : MonoBehaviour
        
         skeletik =Instantiate(spawner_init.GetComponent<SPAWNER>().NPC1, spawner_init.GetComponent<SPAWNER>().spawnPoint1);
         skeletik.GetComponentInChildren<damage_item>().wa = Man_Weapon.GetComponent<weapon_abstract>();
+
+        skeletik.transform.parent = null;
+
+
     }
 
    

@@ -20,6 +20,9 @@ public class BUTTON1_TANK : MonoBehaviour
        
         MOBs =Instantiate(spawner_init.GetComponent<SPAWNER>().NPC10, spawner_init.GetComponent<SPAWNER>().spawnPoint2);
         MOBs.GetComponentInChildren<damage_item>().wa = Man_Weapon.GetComponent<weapon_abstract>();
+        MOBs.transform.parent = null;
+
+
     }
 
    

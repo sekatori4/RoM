@@ -36,10 +36,10 @@ public class PatrolBehaviour : StateMachineBehaviour
         agent = animator.GetComponent<NavMeshAgent>();
         agent.speed = speedwalk;
         
-        agent.SetDestination (waypoint[0].transform.position);
-
-
         
+        agent.SetDestination(waypoint[Random.Range(0, waypoint.Length)].transform.position);
+
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

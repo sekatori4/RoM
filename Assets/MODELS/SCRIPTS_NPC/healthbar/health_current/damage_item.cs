@@ -1,77 +1,109 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
+using TMPro;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class damage_item : MonoBehaviour
 {
 
     [SerializeField] public string enemy_tag;
-    
-    [SerializeField] private AudioSource soundSource;
-    [SerializeField] private AudioClip hitSkelet;
+    [SerializeField] public string enemy_tag2;
 
-   
+    [SerializeField] private AudioSource soundSource;
+    [SerializeField] private AudioClip hitVRAG;
+    
+
     [SerializeField] public weapon_abstract wa;
 
     
-
+   
 
     public GameObject effect_popadania;
 
+    
 
     private void OnTriggerEnter (Collider other)
     {
-        Debug.Log("OnTrigger---> "+other.tag);
-
-
         
+        string SELF = transform.root.gameObject.tag;
 
 
+        string vrag = other.transform.root.gameObject.tag;               // выбран объект по КОЛЛАЙДЕРУ прикосновения оружия ;
 
-        if (other.tag == enemy_tag)
 
+        if (vrag != SELF)
         {
-
-
-
-
-
-            //---------------------->>>> точка соприкосновения с коллайдером
-
-
-            //RaycastHit hit;
-            //if (Physics.Raycast(transform.position, transform.forward, out hit))
-            //{
-            //    Debug.Log("Point of contact: " + hit.point);
-            //}
-            ////------------------вызов в точке соприкосновения префаба ХИТ
-
-
-            //GameObject HIT_obj = Instantiate(effect_popadania, hit.point, transform.rotation);
-
-
-            Explode();
-
-            HP_Death_no_rigi enemy1 = other.GetComponentInParent<HP_Death_no_rigi>();
-
-            if (enemy1 != null)
+            if (vrag == "deff")
             {
-                
-                
-                enemy1.TakeDamage(wa.damage);
+                Explode();
 
+                other.GetComponentInParent<HP_Death_no_rigi>().TakeDamage(wa.damage);
             }
             else
             {
-                other.GetComponentInParent<skelet_hp>().TakeDamage(wa.damage);
+
+                if (vrag == "skelet")
+
+                {
+                    Explode();
+
+                    other.GetComponentInParent<skelet_hp>().TakeDamage(wa.damage);
+
+                }
 
             }
-           
-
 
 
 
         }
+
+
+
+
+
+
+        //if (vrag.tag == "deff" && other.transform.root != transform.root )
+
+        //{
+        //    Debug.Log("OnTrigger---> " + other.tag);
+
+
+        //    Explode();
+
+           
+        //    vrag.GetComponentInParent<HP_Death_no_rigi>().TakeDamage(wa.damage);
+        //}
+        //else
+
+
+        //if (vrag.tag == "skelet" && other.transform.root != transform.root)
+        //{
+        //    Debug.Log("OnTrigger---> " + other.tag);
+        //    vrag.GetComponentInParent<skelet_hp>().TakeDamage(wa.damage);
+
+        //    Explode();
+        //}
+
+        //else
+
+
+        //if (vrag.tag == "castle" && other.transform.root != transform.root )
+        //{
+        //    Debug.Log("OnTrigger---> " + other.tag);
+        //    vrag.GetComponentInParent<castle_hp>().TakeDamage(wa.damage);
+
+        //    Explode();
+        //}
+
+       
+
+
+
+
+
+    }
        
 
         void Explode()
@@ -85,7 +117,7 @@ public class damage_item : MonoBehaviour
             }
             //------------------вызов в точке соприкосновения префаба ХИТ
 
-            soundSource.PlayOneShot(hitSkelet);
+            soundSource.PlayOneShot(hitVRAG);
 
 
 
@@ -97,7 +129,7 @@ public class damage_item : MonoBehaviour
         }
 
 
-    }
+    
 
     public class manager
     {

@@ -5,10 +5,13 @@ using UnityEngine.AI;
 
 public class atack_skeleton : StateMachineBehaviour
 {
+    GameObject[] deff;
     GameObject[] castle;
+    GameObject[] enemy;
+
     NavMeshAgent agent;
     NavMeshObstacle obtekat;
-    float attackRange = 5;
+    float attackRange ;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -23,10 +26,26 @@ public class atack_skeleton : StateMachineBehaviour
         obtekat = animator.GetComponent<NavMeshObstacle>();                   //---<<<<<----------------   Œ¡“≈ ¿“‹
         agent = animator.GetComponent<NavMeshAgent>();
         castle = GameObject.FindGameObjectsWithTag("castle");
+        deff = GameObject.FindGameObjectsWithTag("deff");
 
-        if (castle.Length < 1)
+        if (deff.Length > 0)
+
         {
-            animator.SetBool("atack", false);
+            attackRange = 3;
+            enemy = deff;
+        }
+        else
+        {
+            attackRange = 7f;
+            enemy = castle;
+        }
+
+
+
+
+        if (enemy.Length < 1)
+        {
+            animator.SetBool("atack", false);    // Ò‰ÂÎ‡Ú¸ ÔÂÂıÓ‰ ‚ ‡ÌËÏ‡ˆË˛ WALK ‡ ÓÚÚÛ‰‡ ‚ ‡ÌËÏ‡ˆË˛ ¬»ÕÕ≈–!!!
 
         }
 
@@ -36,10 +55,10 @@ public class atack_skeleton : StateMachineBehaviour
 
 
             int blizh = 0;
-            for (int i = 0; i < castle.Length; i++)
+            for (int i = 0; i < enemy.Length; i++)
             {
 
-                if (Vector3.Distance(castle[i].transform.position, animator.transform.position) < Vector3.Distance(castle[blizh].transform.position, animator.transform.position))
+                if (Vector3.Distance(enemy[i].transform.position, animator.transform.position) < Vector3.Distance(enemy[blizh].transform.position, animator.transform.position))
                 {
                     blizh = i;
                 }
@@ -51,7 +70,7 @@ public class atack_skeleton : StateMachineBehaviour
 
 
 
-            animator.transform.LookAt(castle[blizh].transform);  //-----<<< —ÏÓÚËÚ Õ¿ ÷≈À‹
+            animator.transform.LookAt(enemy[blizh].transform);  //-----<<< —ÏÓÚËÚ Õ¿ ÷≈À‹
 
 
             //--------------¬ Àﬁ◊»“‹ Õ¿¬Ã≈ÿ--Œ¡“›… À
@@ -60,7 +79,7 @@ public class atack_skeleton : StateMachineBehaviour
 
             //-------------
 
-            float distance = Vector3.Distance(animator.transform.position, castle[blizh].transform.position);
+            float distance = Vector3.Distance(animator.transform.position, enemy[blizh].transform.position);
             if (distance > attackRange)
 
                 //--------------Œ¡“›… À---¬€ À

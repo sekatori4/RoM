@@ -6258,8 +6258,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_tag: skelet
+  enemy_tag2: 
   soundSource: {fileID: 6340485097718387297}
-  hitSkelet: {fileID: 8300000, guid: bd8a1c12f6952ca4a8dde9c00bb057a1, type: 3}
+  hitVRAG: {fileID: 8300000, guid: fcf22ca49e8e90b4aa7b9b3868f3b450, type: 3}
   wa: {fileID: 0}
   effect_popadania: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
 --- !u!65 &2355166553937150315
@@ -12626,7 +12627,7 @@ GameObject:
   - component: {fileID: 4828266039383221617}
   m_Layer: 0
   m_Name: TANK
-  m_TagString: castle
+  m_TagString: deff
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12641,7 +12642,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.13, y: -0.0000038146973, z: 9.39}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7042019064492628268}
@@ -12754,8 +12755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060e30db79d6c8d46895faf08dd0e698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_HP: 5000
-  curHP1: 5000
+  MAX_HP: 500
+  curHP1: 0
   animator: {fileID: 2839855217462708671}
   skelet_poivlenie: {fileID: 0}
   healthSlider: {fileID: 5964485460019309172}

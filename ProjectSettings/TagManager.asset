@@ -12,11 +12,12 @@ TagManager:
   - WA
   - 1wave
   - 1boss
+  - deff
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ZAMOK
   - Water
   - UI
   - 
