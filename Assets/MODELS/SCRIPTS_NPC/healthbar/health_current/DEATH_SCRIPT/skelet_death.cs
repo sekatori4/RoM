@@ -4,7 +4,7 @@ using UnityEngine;
 public class skelet_death : MonoBehaviour, IDeath
 {
     [SerializeField] GameObject WEAPON;
-    [SerializeField] GameObject skelet_poivlenie;
+    [SerializeField] GameObject ostanki;
 
     bool pidor;
 
@@ -38,13 +38,7 @@ public class skelet_death : MonoBehaviour, IDeath
 
         //----------------------------------------------------------------------
 
-
-        //-----Коллайдер ВЫКЛ ОСНОВНОМУ (ФИКСАЦИЯ ПОЛУЧЕНИЯ УРОНА)
-        gameObject.GetComponent<BoxCollider>().enabled = false;
-
-        //-------------------------
-
-
+              
         //------------Коллайдеры ВКЛ ВСЕМ
         Collider[] colON = GetComponentsInChildren<Collider>();
 
@@ -91,6 +85,7 @@ public class skelet_death : MonoBehaviour, IDeath
 
         foreach (Rigidbody t in rigidON) { t.isKinematic = true; }
 
+       //------------------------>>> коллайдеры выключить всем
         Collider[] coloff = GetComponentsInChildren<Collider>();
 
         foreach (Collider t in coloff) { t.enabled = false; }
@@ -105,7 +100,7 @@ public class skelet_death : MonoBehaviour, IDeath
         Destroy(transform.gameObject, 5);
         //-------------------------->>>> появление КОСТЕЙ
 
-        GameObject clone_corpse = Instantiate(skelet_poivlenie, transform.position, transform.rotation);
+        GameObject clone_corpse = Instantiate(ostanki, transform.position, transform.rotation);
 
 
         clone_corpse.SetActive(true);

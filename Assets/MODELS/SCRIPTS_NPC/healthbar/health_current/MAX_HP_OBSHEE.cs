@@ -7,7 +7,6 @@ public class MAX_HP_OBSHEE : MonoBehaviour
     public float curHP;
     [SerializeField] public float physic_ARMOR_percent;
     [SerializeField] public float mage_ARMOR_percent;
-    [SerializeField] GameObject skelet_poivlenie;
     [SerializeField] private Slider healthSlider;   // ПОЛОСКА ХП
     [SerializeField] GameObject WEAPON;           // КОЛЛАЙДЕР ОРУЖИЯ  --------------->>>>>>>>>>>>>>>>>>>>> ПОДУМАТЬ
 
@@ -50,22 +49,20 @@ public class MAX_HP_OBSHEE : MonoBehaviour
     {
         curHP = curHP - (damage - ((damage / 100) * physic_ARMOR_percent));
 
-        if (curHP <= 0)
-        {
-            //что делать при смерти
-            //---------Выключить аниматор
-            GetComponent<IDeath>().death_activate();
-        }
+        CheckIfDead();
     }
 
     public void TakeDamageMage(float damage)
     {
-
         curHP = curHP - (damage - ((damage / 100) * mage_ARMOR_percent));
 
-        if (curHP <= 0)
+        CheckIfDead();
+    }
+
+    private void CheckIfDead()
+    {
+        if (curHP <= 0 && gameObject.tag != "corpse")
         {
-            //что делать при смерти
             GetComponent<IDeath>().death_activate();
         }
     }
