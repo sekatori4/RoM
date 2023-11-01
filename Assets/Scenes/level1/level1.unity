@@ -2371,7 +2371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1627238032138754612, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.443635
+      value: 15.92
       objectReference: {fileID: 0}
     - target: {fileID: 1627238032138754612, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2411,12 +2411,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5419151161477171545, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
+    - {fileID: 338418060920820266, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8029002871826133656, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1746049425}
+    - targetCorrespondingSourceObject: {fileID: 3460934613343717303, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1746049428}
   m_SourcePrefab: {fileID: 100100000, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
 --- !u!1 &1746049424 stripped
 GameObject:
@@ -2435,13 +2439,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573e4a3c5c77c0e44bb8fad49f2254e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_HP: -5
+  MAX_HP: 100
   curHP: 0
   physic_ARMOR_percent: 0
   mage_ARMOR_percent: 0
   script_smerti: {fileID: 11500000, guid: 80c7f049ee12dd5439f631c3da2ae8bf, type: 3}
   healthSlider: {fileID: 687426667}
-  WEAPON: {fileID: 0}
+  WEAPON: {fileID: 1746049426}
+--- !u!1 &1746049426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3460934613343717303, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
+  m_PrefabInstance: {fileID: 1746049423}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1746049427 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3842322938348450226, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
+  m_PrefabInstance: {fileID: 1746049423}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1746049428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746049426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e157ab8820976b4b9d630af1ad9c8dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friend1: 
+  friend2: 
+  friend3: 
+  friend4: 
+  friend5: 
+  soundSource: {fileID: 1746049427}
+  ZVUK_ORUZHIYA: {fileID: 8300000, guid: fcf22ca49e8e90b4aa7b9b3868f3b450, type: 3}
+  physic_damage: 15
+  mage_damage: 0
+  effect_popadania: {fileID: 0}
 --- !u!1 &1763666938
 GameObject:
   m_ObjectHideFlags: 0
