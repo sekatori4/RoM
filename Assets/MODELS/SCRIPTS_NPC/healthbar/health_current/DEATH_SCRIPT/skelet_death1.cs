@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class skelet_death1 : MonoBehaviour, IDeath
 {
-    public Animator animator;
     bool pidor;
 
 

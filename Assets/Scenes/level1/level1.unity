@@ -1998,6 +1998,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407193812}
   m_CullTransparentMesh: 1
+--- !u!1 &1496203003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5000848197569305622, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
+  m_PrefabInstance: {fileID: 5676092389866407265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1496203008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496203003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e157ab8820976b4b9d630af1ad9c8dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friend1: 
+  friend2: 
+  friend3: 
+  friend4: 
+  friend5: 
+  soundSource: {fileID: 0}
+  ZVUK_ORUZHIYA: {fileID: 0}
+  physic_damage: 15
+  mage_damage: 0
+  effect_popadania: {fileID: 0}
 --- !u!1 &1582739803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,11 +2430,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4268364771471924218, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8029002871826133656, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
       propertyPath: m_Name
       value: TEST_skelet
+      objectReference: {fileID: 0}
+    - target: {fileID: 8029002871826133656, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5419151161477171545, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
@@ -2418,6 +2449,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8029002871826133656, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1746049425}
+    - targetCorrespondingSourceObject: {fileID: 8029002871826133656, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1746049429}
     - targetCorrespondingSourceObject: {fileID: 3460934613343717303, guid: 5f88644374a2d3b4784bb088225c5fa7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1746049428}
@@ -2443,7 +2477,7 @@ MonoBehaviour:
   curHP: 0
   physic_ARMOR_percent: 0
   mage_ARMOR_percent: 0
-  script_smerti: {fileID: 11500000, guid: 80c7f049ee12dd5439f631c3da2ae8bf, type: 3}
+  skelet_poivlenie: {fileID: 0}
   healthSlider: {fileID: 687426667}
   WEAPON: {fileID: 1746049426}
 --- !u!1 &1746049426 stripped
@@ -2478,6 +2512,20 @@ MonoBehaviour:
   physic_damage: 15
   mage_damage: 0
   effect_popadania: {fileID: 0}
+--- !u!114 &1746049429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746049424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c7f049ee12dd5439f631c3da2ae8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WEAPON: {fileID: 1746049426}
+  skelet_poivlenie: {fileID: 919132149155446097, guid: 4b5dcacea81e7b64fbd6d1417e73910d, type: 3}
 --- !u!1 &1763666938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3300,7 +3348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4268364771471924218, guid: 6e7a8f769981f7149b1bce8486bee411, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8029002871826133656, guid: 6e7a8f769981f7149b1bce8486bee411, type: 3}
       propertyPath: m_Name
@@ -3308,7 +3356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8029002871826133656, guid: 6e7a8f769981f7149b1bce8486bee411, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3365,7 +3413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2885410057192383055, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5419746868250677139, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
       propertyPath: wa
@@ -3377,12 +3425,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828165986747082667, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5419746868250677139, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5000848197569305622, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1496203008}
   m_SourcePrefab: {fileID: 100100000, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
