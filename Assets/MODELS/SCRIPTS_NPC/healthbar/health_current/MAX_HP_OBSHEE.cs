@@ -19,8 +19,6 @@ public class MAX_HP_OBSHEE : MonoBehaviour
         curHP = MAX_HP;
         healthSlider.maxValue = MAX_HP;
 
-        
-
         //----------РИГИБОДИ  ВЫКЛ ВСЕ
 
         Rigidbody[] rigid = GetComponentsInChildren<Rigidbody>();
@@ -56,15 +54,7 @@ public class MAX_HP_OBSHEE : MonoBehaviour
         {
             //что делать при смерти
             //---------Выключить аниматор
-            //(script_smerti as IDeath).death_activate();
-
-            //var deathScript = GetComponent<skelet_death>();
-            //deathScript.death_activate();
-
-
-            //Which one?
-            gameObject.GetComponent<IDeath>().death_activate();
-            this.GetComponent<IDeath>().death_activate();
+            GetComponent<IDeath>().death_activate();
         }
     }
 
@@ -76,10 +66,7 @@ public class MAX_HP_OBSHEE : MonoBehaviour
         if (curHP <= 0)
         {
             //что делать при смерти
-
-            //Which one?
-            gameObject.GetComponent<IDeath>().death_activate();
-            this.GetComponent<IDeath>().death_activate();
+            GetComponent<IDeath>().death_activate();
         }
     }
 
