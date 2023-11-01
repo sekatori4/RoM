@@ -63,7 +63,7 @@ public class HP_Death_no_rigi : MonoBehaviour
        
         
         if ( curHP1<= 0)
-        {
+        {                                    //------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ÑÑÛËÊÀ----->>>
 
             animator.SetBool("isdeath", true);
 

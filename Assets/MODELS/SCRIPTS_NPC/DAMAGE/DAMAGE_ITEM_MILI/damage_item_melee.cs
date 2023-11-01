@@ -46,14 +46,18 @@ public class damage_item_melee : MonoBehaviour
             && vrag != friend5)
                 {
 
-            other.GetComponentInParent<MAX_HP_OBSHEE>().TakeDamagePhys(physic_damage);
-
-            other.GetComponentInParent<MAX_HP_OBSHEE>().TakeDamageMage(mage_damage);
-
-            Explode();
 
 
-            
+            if (other.tag != "corpse")
+            {
+                other.GetComponentInParent<MAX_HP_OBSHEE>().TakeDamagePhys(physic_damage);
+                other.GetComponentInParent<MAX_HP_OBSHEE>().TakeDamageMage(mage_damage);
+
+                Explode();
+            }
+
+
+
 
             //other.GetComponentInParent<MAX_HP_OBSHEE>().TakeDamage(physic_damage, mage_damage);
 
