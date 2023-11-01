@@ -2099,12 +2099,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573e4a3c5c77c0e44bb8fad49f2254e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_HP: 100
+  MAX_HP: 10
   curHP: 0
   physic_ARMOR_percent: 0
   mage_ARMOR_percent: 0
   skelet_poivlenie: {fileID: 0}
   healthSlider: {fileID: 1082683561}
+  WEAPON: {fileID: 1496203003}
+--- !u!114 &1621680542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621680534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3d011b824cfd64ba2297aee02b6302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   WEAPON: {fileID: 1496203003}
 --- !u!1 &1632189030
 GameObject:
@@ -2508,7 +2521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573e4a3c5c77c0e44bb8fad49f2254e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_HP: 15
+  MAX_HP: 100
   curHP: 0
   physic_ARMOR_percent: 0
   mage_ARMOR_percent: 0
@@ -3471,6 +3484,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8828165986747082667, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1621680541}
+    - targetCorrespondingSourceObject: {fileID: 8828165986747082667, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1621680542}
     - targetCorrespondingSourceObject: {fileID: 5000848197569305622, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1496203008}
