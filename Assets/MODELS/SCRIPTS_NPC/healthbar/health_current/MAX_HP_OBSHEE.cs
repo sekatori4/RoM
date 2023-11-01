@@ -16,11 +16,7 @@ public class MAX_HP_OBSHEE : MonoBehaviour
     public float curHP;
     [SerializeField] public float physic_ARMOR_percent;
     [SerializeField] public float mage_ARMOR_percent;
-    public UnityEngine.Object script_smerti;
-    public UnityEngine.Object script_smerti;
-    
-
-
+    public Object script_smerti;
 
     [SerializeField] private Slider healthSlider;   // онкняйю уо
     
@@ -32,8 +28,11 @@ public class MAX_HP_OBSHEE : MonoBehaviour
 
     public void Start()
     {
+        (script_smerti as IDeath).death_activate();
 
+        (script_smerti as IMove).Move();
 
+        //(script_smerti as skelet_death).someMethod();
 
         curHP = MAX_HP;
         healthSlider.maxValue = MAX_HP;
