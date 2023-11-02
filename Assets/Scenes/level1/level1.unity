@@ -2733,7 +2733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2885410057192383055, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5419746868250677139, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
       propertyPath: wa
@@ -2745,7 +2745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8828165986747082667, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5419746868250677139, guid: 6e302532102b0a84684ccd75f337915e, type: 3}
