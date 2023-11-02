@@ -2559,7 +2559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WEAPON: {fileID: 3460934613343717303}
-  ostanki: {fileID: 6194390720314062167, guid: 507ae8a83cbb9e74b918a7b710fe87d9, type: 3}
+  ostanki: {fileID: 7838213631529800516, guid: 099ebf27ff896134097bae5fd67e3ea9, type: 3}
 --- !u!1 &8537155835227183114
 GameObject:
   m_ObjectHideFlags: 0
