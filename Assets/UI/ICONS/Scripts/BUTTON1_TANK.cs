@@ -12,14 +12,12 @@ public class BUTTON1_TANK : MonoBehaviour
     // Start is called before the first frame update
     public void clicker()
     {
-        GameObject Man_Weapon = GameObject.FindGameObjectWithTag("1boss");
-
-
+        
         Debug.Log("TAAAAAAAAAAAAAAAAAAANK");
-        GameObject MOBs;
-       
-        MOBs =Instantiate(spawner_init.GetComponent<SPAWNER>().NPC10, spawner_init.GetComponent<SPAWNER>().spawnPoint2);
-        MOBs.GetComponentInChildren<damage_item>().wa = Man_Weapon.GetComponent<weapon_abstract>();
+        
+        GameObject MOBs= Instantiate(spawner_init.GetComponent<SPAWNER>().NPC10, spawner_init.GetComponent<SPAWNER>().spawnPoint2);
+        
+
         MOBs.transform.parent = null;
 
 

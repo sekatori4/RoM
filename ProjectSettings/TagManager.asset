@@ -13,6 +13,7 @@ TagManager:
   - 1wave
   - 1boss
   - deff
+  - floor
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - ZAMOK
   - Water
   - UI
-  - 
+  - post_processing
   - 
   - 
   - 

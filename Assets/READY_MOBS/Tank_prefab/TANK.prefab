@@ -6220,9 +6220,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1715347247505739179}
-  - component: {fileID: 5419746868250677139}
   - component: {fileID: 2355166553937150315}
   - component: {fileID: 6340485097718387297}
+  - component: {fileID: 5502222466248510130}
   m_Layer: 0
   m_Name: take_damage
   m_TagString: Untagged
@@ -6245,24 +6245,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7553590480410748243}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5419746868250677139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5000848197569305622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4861dd948c170454c903b7fb02f29e3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy_tag: skelet
-  enemy_tag2: 
-  soundSource: {fileID: 6340485097718387297}
-  hitVRAG: {fileID: 8300000, guid: fcf22ca49e8e90b4aa7b9b3868f3b450, type: 3}
-  wa: {fileID: 0}
-  effect_popadania: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
 --- !u!65 &2355166553937150315
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6380,6 +6362,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5502222466248510130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5000848197569305622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e157ab8820976b4b9d630af1ad9c8dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friend1: castle
+  friend2: floor
+  friend3: 
+  friend4: 
+  friend5: 
+  soundSource: {fileID: 6340485097718387297}
+  ZVUK_ORUZHIYA: {fileID: 8300000, guid: de51757c16f755a49abdd40d70ab9b73, type: 3}
+  physic_damage: 15
+  mage_damage: 0
+  effect_popadania: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
 --- !u!1 &5004536861559216062
 GameObject:
   m_ObjectHideFlags: 0
@@ -12624,7 +12628,8 @@ GameObject:
   - component: {fileID: 234572083573914591}
   - component: {fileID: 6712791081816477575}
   - component: {fileID: 4804392071421972779}
-  - component: {fileID: 4828266039383221617}
+  - component: {fileID: 3371102563644840940}
+  - component: {fileID: 957131856242194114}
   m_Layer: 0
   m_Name: TANK
   m_TagString: deff
@@ -12743,7 +12748,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4828266039383221617
+--- !u!114 &3371102563644840940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12752,14 +12757,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 8828165986747082667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 060e30db79d6c8d46895faf08dd0e698, type: 3}
+  m_Script: {fileID: 11500000, guid: 573e4a3c5c77c0e44bb8fad49f2254e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_HP: 500
-  curHP1: 0
-  animator: {fileID: 2839855217462708671}
-  skelet_poivlenie: {fileID: 0}
+  MAX_HP: 10000
+  curHP: 0
+  physic_ARMOR_percent: 50
+  mage_ARMOR_percent: 0
   healthSlider: {fileID: 5964485460019309172}
+  WEAPON: {fileID: 5000848197569305622}
+--- !u!114 &957131856242194114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8828165986747082667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3d011b824cfd64ba2297aee02b6302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   WEAPON: {fileID: 5000848197569305622}
 --- !u!1 &8839429403530239004
 GameObject:

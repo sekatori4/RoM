@@ -896,8 +896,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3476714027366189066}
   - component: {fileID: 5143118328405190906}
-  - component: {fileID: 338418060920820266}
   - component: {fileID: 3842322938348450226}
+  - component: {fileID: 3063245888504538842}
   m_Layer: 0
   m_Name: sword_take_damage
   m_TagString: Untagged
@@ -941,24 +941,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.09, y: 0.04, z: 0.42}
   m_Center: {x: -0.07, y: 0.03, z: 0.63}
---- !u!114 &338418060920820266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3460934613343717303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4861dd948c170454c903b7fb02f29e3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy_tag: deff
-  enemy_tag2: 
-  soundSource: {fileID: 3842322938348450226}
-  hitVRAG: {fileID: 8300000, guid: bd8a1c12f6952ca4a8dde9c00bb057a1, type: 3}
-  wa: {fileID: 0}
-  effect_popadania: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
 --- !u!82 &3842322938348450226
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1055,6 +1037,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3063245888504538842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3460934613343717303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e157ab8820976b4b9d630af1ad9c8dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friend1: 
+  friend2: 
+  friend3: 
+  friend4: 
+  friend5: 
+  soundSource: {fileID: 3842322938348450226}
+  ZVUK_ORUZHIYA: {fileID: 8300000, guid: fcf22ca49e8e90b4aa7b9b3868f3b450, type: 3}
+  physic_damage: 15
+  mage_damage: 0
+  effect_popadania: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
 --- !u!1 &3553498625667452139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,10 +2391,11 @@ GameObject:
   - component: {fileID: 1627238032138754612}
   - component: {fileID: 7834127400670812960}
   - component: {fileID: 1507234552063057413}
-  - component: {fileID: 5419151161477171545}
   - component: {fileID: 4177272846529810249}
   - component: {fileID: 9050954276853258462}
   - component: {fileID: 728541974128523805}
+  - component: {fileID: 3481344758129047741}
+  - component: {fileID: 7269457471518251735}
   m_Layer: 0
   m_Name: skelet
   m_TagString: skelet
@@ -2407,7 +2412,7 @@ Transform:
   m_GameObject: {fileID: 8029002871826133656}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.55, y: -0.11, z: 10.53}
+  m_LocalPosition: {x: -13.27, y: -0.11, z: 10.53}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2459,24 +2464,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5419151161477171545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8029002871826133656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6462512c476a3fa41a5637c9ae875223, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MAX_HP: 100
-  curHP1: 100
-  animator: {fileID: 7834127400670812960}
-  skelet_poivlenie: {fileID: 6194390720314062167, guid: 507ae8a83cbb9e74b918a7b710fe87d9, type: 3}
-  healthSlider: {fileID: 5485711994560033876}
-  WEAPON: {fileID: 3460934613343717303}
 --- !u!65 &4177272846529810249
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2541,6 +2528,38 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &3481344758129047741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029002871826133656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573e4a3c5c77c0e44bb8fad49f2254e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MAX_HP: 100
+  curHP: 0
+  physic_ARMOR_percent: 0
+  mage_ARMOR_percent: 0
+  healthSlider: {fileID: 5485711994560033876}
+  WEAPON: {fileID: 3460934613343717303}
+--- !u!114 &7269457471518251735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029002871826133656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c7f049ee12dd5439f631c3da2ae8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WEAPON: {fileID: 3460934613343717303}
+  ostanki: {fileID: 6194390720314062167, guid: 507ae8a83cbb9e74b918a7b710fe87d9, type: 3}
 --- !u!1 &8537155835227183114
 GameObject:
   m_ObjectHideFlags: 0

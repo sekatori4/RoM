@@ -18,7 +18,10 @@ MonoBehaviour:
   - GLOBAL(STATIC) LIGHT
   - DINAMIC LIGHT
   - Layer 3
-  m_ValidRenderingLayers: 15
+  - Layer 4
+  - Layer 5
+  - Layer 6
+  m_ValidRenderingLayers: 127
   lightLayerName0: 
   lightLayerName1: 
   lightLayerName2: 
