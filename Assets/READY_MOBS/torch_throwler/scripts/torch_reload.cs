@@ -6,32 +6,21 @@ using UnityEngine.AI;
 
 
 
+
 public class torch_reload : StateMachineBehaviour
 {
-    
-
-
-
-    
-
+   
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
-        Debug.Log("должен пропасть");
-
-        animator.GetComponent<torch_throw_projectile>().reload_torch();
-
-        
-
+        animator.GetBehaviour<atack_torch>().fakela_est = false;
 
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.GetBehaviour<atack_torch>().fakela_est=true;
         
     }
-
-
 
 
 

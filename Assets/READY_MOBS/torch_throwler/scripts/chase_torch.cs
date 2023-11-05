@@ -35,12 +35,12 @@ public class chase_torch : StateMachineBehaviour
         if (deff.Length > 0)
 
         {
-            attackRange = 20;
+            attackRange = 18;
             enemy = deff;
         }
         else
         {
-            attackRange = 20;
+            attackRange = 18;
             enemy = castle;
         }
 
@@ -68,7 +68,7 @@ public class chase_torch : StateMachineBehaviour
 
 
 
-        agent.SetDestination(enemy[blizh].transform.position);           /// <<<<-------------  ÀÃÅÍÒ ÈÄÅÒ Ê ÁËÈÆÀÉØÅÌÓ ÂÐÀÃÓ
+                 /// <<<<-------------  ÀÃÅÍÒ ÈÄÅÒ Ê ÁËÈÆÀÉØÅÌÓ ÂÐÀÃÓ
 
 
         float distance = Vector3.Distance(animator.transform.position, enemy[blizh].transform.position);
@@ -81,7 +81,7 @@ public class chase_torch : StateMachineBehaviour
         }
         else
         {
-            // animator.SetBool("chase", false);
+            agent.SetDestination(enemy[blizh].transform.position);
         }
 
     }

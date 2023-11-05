@@ -5,9 +5,9 @@ using TMPro;
 using UnityEditor.UI;
 using UnityEngine;
 
-public class damage_item_melee : MonoBehaviour
+public class damage_item_TORCH : MonoBehaviour
 {
-
+    public Animator anim;
     [SerializeField] public string friend1;
     [SerializeField] public string friend2;
     [SerializeField] public string friend3;
@@ -48,17 +48,18 @@ public class damage_item_melee : MonoBehaviour
 
 
 
-            if (other.tag != "corpse")
+            if (other.tag != "corpse" && other.tag != "floor")
             {
                 other.GetComponentInParent<MAX_HP_OBSHEE>().TakeDamagePhys(physic_damage);
                 other.GetComponentInParent<MAX_HP_OBSHEE>().TakeDamageMage(mage_damage);
-
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+                Destroy(gameObject, 2f);
                 Explode();
+                
             }
 
 
-            //other.GetComponentInParent<MAX_HP_OBSHEE>().TakeDamage(physic_damage, mage_damage);
-
+            
         }
        
     }
@@ -68,17 +69,19 @@ public class damage_item_melee : MonoBehaviour
 
     {
 
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
-        {
-            Debug.Log("Point of contact: " + hit.point);
-        }
+        //RaycastHit hit;
+        //if (Physics.Raycast(transform.position, transform.forward, out hit))
+        //{
+        //    Debug.Log("Point of contact: " + hit.point);
+        //}
         //------------------вызов в точке соприкосновения префаба ХИТ
 
         soundSource.PlayOneShot(ZVUK_ORUZHIYA);
 
         var effect = Instantiate(effect_popadania, transform.position, Quaternion.identity); //Создается экземпляр созданного префаба на том месте, куда попала пуля.
 
+        
+       // Destroy(anim.GetBehaviour<atack_torch>().obj_torch, 0f);
     }
 
 

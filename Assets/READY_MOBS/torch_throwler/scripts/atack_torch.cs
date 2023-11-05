@@ -1,6 +1,8 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,7 +18,10 @@ public class atack_torch : StateMachineBehaviour
     Vector3 target_kidat;
     Transform ruka_kidat;
     Rigidbody boolet;
+    public bool fakela_est;
 
+    public GameObject obj_torch;
+    
     //--------------------------------------------------------------------------------------------------------------------------
 
     Vector3 CalculateVelocity(Vector3 target, Vector3 origin, float time)
@@ -42,21 +47,30 @@ public class atack_torch : StateMachineBehaviour
     public void LaunchProjectale()
     {
         
-        
-        Vector3 Vo = CalculateVelocity(target_kidat, ruka_kidat.position, 1f);
+
+    Vector3 Vo = CalculateVelocity(target_kidat, ruka_kidat.position, 0.5f);
 
 
         Rigidbody obj = Instantiate(boolet, ruka_kidat.position, Quaternion.AngleAxis(90, Vector3.forward));
-        obj.velocity = Vo; 
+        obj.velocity = Vo;
+        obj_torch =obj.gameObject;
+
+       // Destroy(obj_torch,3f);
+        
 
     }
+
     //----------------------------------------------------------------------------------------------------------------------------------
+   
+    //----------------------------------------------------------------------------------------------------------------------------------
+
+
+
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
     {
-        animator.GetComponent<torch_throw_projectile>().KINUT();
-        
+            
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -70,19 +84,18 @@ public class atack_torch : StateMachineBehaviour
         ruka_kidat = animator.GetComponent<torch_throw_projectile>().pointshoot;
         boolet = animator.GetComponent<torch_throw_projectile>().torchPrefab;
 
+
         if (deff.Length > 0)
 
         {
-            attackRange = 20;
+            attackRange = 22;
             enemy = deff;
         }
         else
         {
-            attackRange = 20;
+            attackRange = 22;
             enemy = castle;
         }
-
-
 
 
         if (enemy.Length < 1)
@@ -105,46 +118,46 @@ public class atack_torch : StateMachineBehaviour
 
 
             }
-
-
-
-
-
-            animator.transform.LookAt(enemy[blizh].transform);  //-----<<< Ñìîòðèò ÍÀ ÖÅËÜ
-
-            target_kidat = enemy[blizh].transform.position;
-            
             
 
+            target_kidat = enemy[blizh].transform.position + new Vector3 (0, 0.5f, 0);
+     
 
-
-            //--------------ÂÊËÞ×ÈÒÜ ÍÀÂÌÅØ--ÎÁÒÝÉÊË
-            agent.enabled = false;
-            obtekat.enabled = true;
+            ////--------------ÂÊËÞ×ÈÒÜ ÍÀÂÌÅØ--ÎÁÒÝÉÊË
+            //agent.enabled = false;
+            //obtekat.enabled = true;
 
 
             //----------------------------------
-            //-------------
-
-            
+           
             
             float distance = Vector3.Distance(animator.transform.position, enemy[blizh].transform.position);
-            if (distance > attackRange)
+
+            if (distance > attackRange && fakela_est == true)
             {
-               animator.SetBool("attack", false);  //------> ïåðåõîä íà CHASE
+
+                animator.SetBool("attack", false);  //------> ïåðåõîä íà CHASE
             }
+            else
+            {
+                animator.transform.LookAt(enemy[blizh].transform);  //-----<<< Ñìîòðèò ÍÀ ÖÅËÜ
+
+                //--------------ÂÊËÞ×ÈÒÜ ÍÀÂÌÅØ--ÎÁÒÝÉÊË
+                agent.enabled = false;
+                obtekat.enabled = true;
+
+            }
+                      
         }
+           
     }
 
-
-
-
-
+    
 
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        fakela_est = false;
     }
 }
