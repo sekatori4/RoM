@@ -31,12 +31,12 @@ public class atack_skeleton : StateMachineBehaviour
         if (deff.Length > 0)
 
         {
-            attackRange = 3;
+            attackRange = 3f;
             enemy = deff;
         }
         else
         {
-            attackRange = 7f;
+            attackRange = 5f;
             enemy = castle;
         }
 

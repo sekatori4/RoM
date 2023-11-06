@@ -156,7 +156,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -193,8 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e9f5ad79936734592858103966f5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  friend1: 
+  friend1: skelet
   friend2: 
   friend3: 
   friend4: 
@@ -202,7 +201,7 @@ MonoBehaviour:
   soundSource: {fileID: -8667995017448292054}
   ZVUK_ORUZHIYA: {fileID: 8300000, guid: b656b048bab6157448bd41f155d08e50, type: 3}
   physic_damage: 0
-  mage_damage: 20
+  mage_damage: 50
   effect_popadania: {fileID: 0}
 --- !u!82 &-8667995017448292054
 AudioSource:

@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class damage_item_TORCH : MonoBehaviour
 {
-    public Animator anim;
     [SerializeField] public string friend1;
     [SerializeField] public string friend2;
     [SerializeField] public string friend3;

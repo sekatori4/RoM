@@ -15,49 +15,23 @@ public class atack_torch : StateMachineBehaviour
     NavMeshAgent agent;
     NavMeshObstacle obtekat;
     float attackRange ;
-    Vector3 target_kidat;
-    Transform ruka_kidat;
-    Rigidbody boolet;
+    public Vector3 target_kidat;
+    public GameObject ruka_kidat;
+    public GameObject boolet;
     public bool fakela_est;
+        
 
-    public GameObject obj_torch;
-    
     //--------------------------------------------------------------------------------------------------------------------------
 
-    Vector3 CalculateVelocity(Vector3 target, Vector3 origin, float time)
+    // (target_kidat, ruka_kidat.position, 0.5f);
+   // boolet, ruka_kidat.position, 
+
+
+
+
+    public void LaunchProjectale(Animator animator)
     {
-        Vector3 distance = target - origin;
-        Vector3 distanceXZ = distance;
-        distanceXZ.y = 0f;
-
-        float Sy = distance.y;
-        float Sxz = distanceXZ.magnitude;
-
-        float Vxz = Sxz / time;
-        float Vy = Sy / time + 0.5f * Mathf.Abs(Physics.gravity.y) * time;
-
-        Vector3 result = distanceXZ.normalized;
-        result *= Vxz;
-        result.y = Vy;
-
-        return result;
-
-    }
-
-    public void LaunchProjectale()
-    {
-        
-
-    Vector3 Vo = CalculateVelocity(target_kidat, ruka_kidat.position, 0.5f);
-
-
-        Rigidbody obj = Instantiate(boolet, ruka_kidat.position, Quaternion.AngleAxis(90, Vector3.forward));
-        obj.velocity = Vo;
-        obj_torch =obj.gameObject;
-
-       // Destroy(obj_torch,3f);
-        
-
+       animator.GetComponent<torch_throw_projectile>().DoCoroutine();
     }
 
     //----------------------------------------------------------------------------------------------------------------------------------
@@ -70,7 +44,7 @@ public class atack_torch : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
     {
-            
+        
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -118,19 +92,14 @@ public class atack_torch : StateMachineBehaviour
 
 
             }
-            
 
-            target_kidat = enemy[blizh].transform.position + new Vector3 (0, 0.5f, 0);
-     
 
-            ////--------------¬ Àﬁ◊»“‹ Õ¿¬Ã≈ÿ--Œ¡“›… À
-            //agent.enabled = false;
-            //obtekat.enabled = true;
-
+            //target_kidat = enemy[blizh].transform.position + new Vector3 (0, 0.5f, 0);
+            target_kidat = enemy[blizh].GetComponentInChildren<Renderer>().bounds.center;
 
             //----------------------------------
-           
-            
+
+
             float distance = Vector3.Distance(animator.transform.position, enemy[blizh].transform.position);
 
             if (distance > attackRange && fakela_est == true)

@@ -10,7 +10,7 @@ public class walk_skeleton : StateMachineBehaviour
     GameObject[] deff;
     GameObject[] castle;
     GameObject[] enemy;
-    float attackRange;
+    float chaseRange;
 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -32,15 +32,15 @@ public class walk_skeleton : StateMachineBehaviour
         deff = GameObject.FindGameObjectsWithTag("deff");
         castle = GameObject.FindGameObjectsWithTag("castle");
 
-        if (deff.Length > 0)
+        if (deff.Length > 0 )
 
         {
-            attackRange = 3;
+            chaseRange = 3;
             enemy = deff;
         }
             else
         {
-            attackRange = 7f;
+            chaseRange = 5f;
             enemy = castle;
         }
 
@@ -50,7 +50,7 @@ public class walk_skeleton : StateMachineBehaviour
 
             if (Vector3.Distance(enemy[i].transform.position, agent.transform.position) < Vector3.Distance(enemy[blizh].transform.position, agent.transform.position))
             {
-               // float a = Vector3.Distance(agent.transform.localScale, agent.transform.localScale);
+               
                 blizh = i;
             }
 
@@ -72,7 +72,7 @@ public class walk_skeleton : StateMachineBehaviour
         
         
         float distance = Vector3.Distance(animator.transform.position, enemy[blizh].transform.position);
-        if (distance < attackRange)
+        if (distance < chaseRange)
            
         {
             
