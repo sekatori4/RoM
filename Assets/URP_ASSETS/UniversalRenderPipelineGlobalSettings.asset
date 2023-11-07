@@ -17,7 +17,7 @@ MonoBehaviour:
   - TERRAIN
   - GLOBAL(STATIC) LIGHT
   - DINAMIC LIGHT
-  - Layer 3
+  - effects_trail
   - Layer 4
   - Layer 5
   - Layer 6
