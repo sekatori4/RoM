@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 10.42, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7788913193499145057}
@@ -111,8 +111,8 @@ MonoBehaviour:
   - {fileID: 1959126674990218, guid: d8823133cab18b84587a4f0365df9cff, type: 3}
   - {fileID: 1979740979863946, guid: 7ebc3741ac6927149872ca7c601b09d4, type: 3}
   - {fileID: 1955173974842222, guid: e0159d7c05382534e92cb4361d3e94d2, type: 3}
-  pointshoot: {fileID: 0}
-  boolet_laser: {fileID: 0}
+  pointshoot: {fileID: 4449496523968809017}
+  boolet_laser: {fileID: 3050283766826184564, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
 --- !u!1 &1662576402320903369
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,8 +226,7 @@ Transform:
   m_LocalPosition: {x: 0.020000001, y: 1.101, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7626090174982725128}
+  m_Children: []
   m_Father: {fileID: 7788913193499145057}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &6633491252013792703
@@ -313,65 +312,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &6942568933660980617
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1809281499312954928}
-    m_Modifications:
-    - target: {fileID: 688387966979500929, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 688387966979500929, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 688387966979500929, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 688387966979500929, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 688387966979500929, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 688387966979500929, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 688387966979500929, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 688387966979500929, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 688387966979500929, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 688387966979500929, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3050283766826184564, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
-      propertyPath: m_Name
-      value: bollet_laser
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
---- !u!4 &7626090174982725128 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 688387966979500929, guid: 3c1a148d115a71c48be0dbfb06372016, type: 3}
-  m_PrefabInstance: {fileID: 6942568933660980617}
-  m_PrefabAsset: {fileID: 0}

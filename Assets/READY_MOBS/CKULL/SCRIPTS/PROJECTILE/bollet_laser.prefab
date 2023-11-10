@@ -120,14 +120,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   friend1: deff
-  friend2: 
+  friend2: castle
   friend3: 
   friend4: 
   friend5: 
   soundSource: {fileID: 8599304104081252000}
   ZVUK_ORUZHIYA: {fileID: 0}
   physic_damage: 0
-  mage_damage: 5
+  mage_damage: 0.5
   effect_popadania: {fileID: 0}
 --- !u!82 &8599304104081252000
 AudioSource:

@@ -9,6 +9,8 @@ using JetBrains.Annotations;
 public class EGA_DemoLasers : MonoBehaviour
 {
     public GameObject FirePoint;
+    public GameObject FirePoint2;
+    
     public Camera Cam;
     public float MaxLength;
     public GameObject[] Prefabs;
@@ -26,6 +28,7 @@ public class EGA_DemoLasers : MonoBehaviour
     public GameObject boolet_laser;
     private int Prefab;
     private GameObject Instance;
+    private GameObject Instance2;
     private EGA_Laser LaserScript;
 
     
@@ -58,12 +61,12 @@ public class EGA_DemoLasers : MonoBehaviour
 
         
 
-        gameObject.transform.LookAt(enemy[blizh].transform.position + new Vector3 (0,2,0));
+        gameObject.transform.LookAt(enemy[blizh].transform.position +new Vector3 (0,1,0));
         enemy_blizh = enemy[blizh];
 
         CoolDawn += Time.deltaTime;
 
-        if (Vector3.Distance(enemy[blizh].transform.position,gameObject.transform.position) < MaxLength  && CoolDawn >=0.8f)
+        if (Vector3.Distance(enemy[blizh].transform.position,gameObject.transform.position) < MaxLength  && CoolDawn >=0.5f)
 
         {
                   
@@ -74,13 +77,20 @@ public class EGA_DemoLasers : MonoBehaviour
             Instance = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
             Instance.transform.parent = transform;
             LaserScript = Instance.GetComponent<EGA_Laser>();
-           
-            Destroy(Instance,0.7f);
+
+            Instance2 = Instantiate(Prefabs[Prefab], FirePoint2.transform.position, FirePoint2.transform.rotation);
+            Instance2.transform.parent = transform;
+            LaserScript = Instance2.GetComponent<EGA_Laser>();
+
+
+
+            Destroy(Instance,0.5f);
+            Destroy(Instance2, 0.5f);
             CoolDawn = 0f;
 
 
             GameObject rocket = Instantiate(boolet_laser, pointshoot.transform.position, pointshoot.transform.rotation);
-            rocket.transform.LookAt(enemy[blizh].transform.position);   //---------смотреть на цель прямо ( нверное по ИКСУ)
+           // rocket.transform.LookAt(enemy[blizh].transform.position);   //---------смотреть на цель прямо ( нверное по ИКСУ)
 
             StartCoroutine(SendHoming(rocket));
 
