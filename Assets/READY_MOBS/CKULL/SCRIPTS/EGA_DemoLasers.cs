@@ -30,10 +30,10 @@ public class EGA_DemoLasers : MonoBehaviour
     private GameObject Instance;
     private GameObject Instance2;
     private EGA_Laser LaserScript;
+    private EGA_Laser LaserScript2;
 
-    
-    
-    
+
+
     //Double-click protection
     private float CoolDawn = 0f;
 
@@ -46,59 +46,71 @@ public class EGA_DemoLasers : MonoBehaviour
     {
         enemy = GameObject.FindGameObjectsWithTag("skelet");
 
-        
-
-        int blizh = 0;
-        for (int i = 0; i < enemy.Length; i++)
+        if (enemy.Length == 0)
+        {
+            gameObject.transform.rotation = Quaternion.identity;
+        }
+        else
         {
 
-            if (Vector3.Distance(enemy[i].transform.position, gameObject.transform.position) < Vector3.Distance(enemy[blizh].transform.position, gameObject.transform.position))
+            int blizh = 0;
+            for (int i = 0; i < enemy.Length; i++)
             {
 
-                blizh = i;
+                if (Vector3.Distance(enemy[i].transform.position, gameObject.transform.position) < Vector3.Distance(enemy[blizh].transform.position, gameObject.transform.position))
+                {
+
+                    blizh = i;
+                }
             }
-        }
-
-        
-
-        gameObject.transform.LookAt(enemy[blizh].transform.position +new Vector3 (0,1,0));
-        enemy_blizh = enemy[blizh];
-
-        CoolDawn += Time.deltaTime;
-
-        if (Vector3.Distance(enemy[blizh].transform.position,gameObject.transform.position) < MaxLength  && CoolDawn >=0.5f)
-
-        {
-                  
-            
-            Debug.Log("DOSTAL" + MaxLength);
-            
-         
-            Instance = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
-            Instance.transform.parent = transform;
-            LaserScript = Instance.GetComponent<EGA_Laser>();
-
-            Instance2 = Instantiate(Prefabs[Prefab], FirePoint2.transform.position, FirePoint2.transform.rotation);
-            Instance2.transform.parent = transform;
-            LaserScript = Instance2.GetComponent<EGA_Laser>();
 
 
 
-            Destroy(Instance,0.5f);
-            Destroy(Instance2, 0.5f);
-            CoolDawn = 0f;
 
 
-            GameObject rocket = Instantiate(boolet_laser, pointshoot.transform.position, pointshoot.transform.rotation);
-           // rocket.transform.LookAt(enemy[blizh].transform.position);   //---------смотреть на цель прямо ( нверное по ИКСУ)
+            gameObject.transform.LookAt(enemy[blizh].transform.position + new Vector3(0, 1, 0));
+            enemy_blizh = enemy[blizh];
 
-            StartCoroutine(SendHoming(rocket));
 
-        }
-        
-                     
-        
-        
+
+
+
+
+            CoolDawn += Time.deltaTime;
+
+            if (Vector3.Distance(enemy[blizh].transform.position, gameObject.transform.position) < MaxLength && CoolDawn >= 0.5f)
+
+            {
+
+
+                Debug.Log("DOSTAL" + MaxLength);
+
+
+                Instance = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
+                Instance.transform.parent = transform;
+                LaserScript = Instance.GetComponent<EGA_Laser>();
+
+                Instance2 = Instantiate(Prefabs[Prefab], FirePoint2.transform.position, FirePoint2.transform.rotation);
+                Instance2.transform.parent = transform;
+                LaserScript2 = Instance2.GetComponent<EGA_Laser>();
+
+
+
+                Destroy(Instance, 0.5f);
+                Destroy(Instance2, 0.5f);
+                CoolDawn = 0f;
+
+
+                GameObject rocket = Instantiate(boolet_laser, pointshoot.transform.position, pointshoot.transform.rotation);
+                // rocket.transform.LookAt(enemy[blizh].transform.position);   //---------смотреть на цель прямо ( нверное по ИКСУ)
+
+                StartCoroutine(SendHoming(rocket));
+
+            }
+
+
+
+        }    
     }
 
     public IEnumerator SendHoming(GameObject rocket)
