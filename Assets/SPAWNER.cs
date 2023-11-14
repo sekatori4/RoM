@@ -5,8 +5,8 @@ using UnityEngine;
 public class SPAWNER : MonoBehaviour
 {
 
-    public Transform spawnPoint1;
-    public Transform spawnPoint2;
+    public GameObject spawnPoint1;
+    public GameObject spawnPoint2;
     public GameObject NPC1;
     public GameObject NPC2;
     public GameObject NPC3;

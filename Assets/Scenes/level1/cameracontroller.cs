@@ -17,21 +17,13 @@ public class cameracontroller : MonoBehaviour {
         Vector3 pos = transform.position;
        xx = pos.x;
        zz = pos.z;
-
-
-
-       
+    
             if (Input.GetMouseButton(1))
             {
             pos.x = xx + Input.GetAxis("Mouse X");
             pos.z = zz + Input.GetAxis("Mouse Y");
         }
         
-
-
-
-
-
 
         if (Input.GetKey ("w") || Input.mousePosition.y >= Screen.height - panBoardThickness)
          {
@@ -51,7 +43,7 @@ public class cameracontroller : MonoBehaviour {
         }
         if (Input.GetKey("space"))
         {
-            pos.x = 0; pos.y = 20; pos.z = 10;
+            pos.x = 0; pos.y = 25; pos.z = 10;
         }
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");

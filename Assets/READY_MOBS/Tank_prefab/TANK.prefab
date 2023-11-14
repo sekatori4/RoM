@@ -12630,6 +12630,7 @@ GameObject:
   - component: {fileID: 4804392071421972779}
   - component: {fileID: 3371102563644840940}
   - component: {fileID: 957131856242194114}
+  - component: {fileID: -3787002531528081037}
   m_Layer: 0
   m_Name: TANK
   m_TagString: deff
@@ -12646,7 +12647,7 @@ Transform:
   m_GameObject: {fileID: 8828165986747082667}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.13, y: -0.0000038146973, z: 9.39}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12779,6 +12780,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WEAPON: {fileID: 5000848197569305622}
+--- !u!208 &-3787002531528081037
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8828165986747082667}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8839429403530239004
 GameObject:
   m_ObjectHideFlags: 0

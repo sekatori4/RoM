@@ -15,7 +15,7 @@ public class BUTTON1_TANK : MonoBehaviour
         
         Debug.Log("TAAAAAAAAAAAAAAAAAAANK");
         
-        GameObject MOBs= Instantiate(spawner_init.GetComponent<SPAWNER>().NPC10, spawner_init.GetComponent<SPAWNER>().spawnPoint2);
+        GameObject MOBs= Instantiate(spawner_init.GetComponent<SPAWNER>().NPC10, spawner_init.GetComponent<SPAWNER>().spawnPoint1.transform );
         
 
         MOBs.transform.parent = null;

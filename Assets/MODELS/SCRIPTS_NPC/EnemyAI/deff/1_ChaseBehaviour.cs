@@ -6,16 +6,17 @@ using UnityEngine.AI;
 public class ChaseBehaviour : StateMachineBehaviour
 {
     NavMeshAgent agent;
-        float attackRange = 4;
-             GameObject[] enemy;
-
+    float attackRange = 4;
+    GameObject[] enemy;
+    NavMeshObstacle obtekat;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent = animator.GetComponent<NavMeshAgent>();
         agent.speed = 10;
+        obtekat = animator.GetComponent<NavMeshObstacle>();                   //---<<<<<----------------   ÎÁÒÅÊÀÒÜ
 
-        
+    
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -53,23 +54,7 @@ public class ChaseBehaviour : StateMachineBehaviour
 
 
 
-
-
-
-
-
-
-
-
-
-
-
         }
-
-
-       
-
-
 
 
         

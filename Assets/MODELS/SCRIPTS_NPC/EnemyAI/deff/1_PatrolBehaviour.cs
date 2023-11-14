@@ -13,7 +13,7 @@ public class PatrolBehaviour : StateMachineBehaviour
     float speedwalk = 3f;
     GameObject[] enemy;
     float chaseRange = 30;
-    
+    NavMeshObstacle obtekat;
 
 
     private void Awake()
@@ -32,26 +32,20 @@ public class PatrolBehaviour : StateMachineBehaviour
         
         timer = 0;
 
-               
+        obtekat = animator.GetComponent<NavMeshObstacle>();
         agent = animator.GetComponent<NavMeshAgent>();
         agent.speed = speedwalk;
-        
-        
-        agent.SetDestination(waypoint[Random.Range(0, waypoint.Length)].transform.position);
 
-
+        
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemy = GameObject.FindGameObjectsWithTag("skelet");
-
-
+               
         if (enemy.Length >0) 
         {
-
-
 
             // ----ближайшая точка>>>>>      
 
@@ -74,7 +68,7 @@ public class PatrolBehaviour : StateMachineBehaviour
                 agent.SetDestination(waypoint[Random.Range(0, waypoint.Length)].transform.position);
 
             timer += Time.deltaTime;
-            if (timer > 10)
+            if (timer == Random.Range(3,8))
                 animator.SetBool("ispatrolling", false);
 
             float distance = Vector3.Distance(animator.transform.position, enemy[blizh].transform.position);
@@ -84,37 +78,19 @@ public class PatrolBehaviour : StateMachineBehaviour
 
         }
 
-
         else
         {
 
-
-
             if (agent.remainingDistance <= agent.stoppingDistance)
-
 
                 agent.SetDestination(waypoint[Random.Range(0, waypoint.Length)].transform.position);
 
             timer += Time.deltaTime;
-            if (timer > 10)
+            if (timer > Random.Range(3, 8))
                 animator.SetBool("ispatrolling", false);
 
-
-
-
-
-
-
-
-
-
         }
-        
-        
-        
-        
-        
-        
+       
         
         }
 
