@@ -127,7 +127,7 @@ MonoBehaviour:
   soundSource: {fileID: 8599304104081252000}
   ZVUK_ORUZHIYA: {fileID: 0}
   physic_damage: 0
-  mage_damage: 1
+  mage_damage: 15
   effect_popadania: {fileID: 0}
 --- !u!82 &8599304104081252000
 AudioSource:

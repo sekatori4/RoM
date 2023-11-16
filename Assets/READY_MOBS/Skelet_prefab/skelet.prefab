@@ -2546,6 +2546,7 @@ MonoBehaviour:
   mage_ARMOR_percent: 0
   healthSlider: {fileID: 5485711994560033876}
   WEAPON: {fileID: 3460934613343717303}
+  LOG_Damage: {fileID: 5734988693918683371, guid: 5da4040327eb4054e8dccadbe0690bcc, type: 3}
 --- !u!114 &7269457471518251735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2560,6 +2561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WEAPON: {fileID: 3460934613343717303}
   ostanki: {fileID: 7838213631529800516, guid: 099ebf27ff896134097bae5fd67e3ea9, type: 3}
+  get_souls: 13
 --- !u!1 &8537155835227183114
 GameObject:
   m_ObjectHideFlags: 0

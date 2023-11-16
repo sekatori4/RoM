@@ -5,8 +5,11 @@ public class skelet_death : MonoBehaviour, IDeath
 {
     [SerializeField] GameObject WEAPON;
     [SerializeField] GameObject ostanki;
-
+    public int get_souls;
     bool pidor;
+    Camera camera_ui;
+   
+   
 
     private void Update()
     {
@@ -19,6 +22,17 @@ public class skelet_death : MonoBehaviour, IDeath
     public void death_activate()
     {
         //что делать при смерти
+
+        //----------------------------------------->> получить души
+        camera_ui = Camera.main;
+
+        camera_ui.GetComponentInChildren<UI_Resources>().Getsouls(get_souls);
+        //----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
         //---------Выключить аниматор
         GetComponent<Animator>().enabled = false;
 
@@ -69,6 +83,8 @@ public class skelet_death : MonoBehaviour, IDeath
         gameObject.GetComponentInChildren<Canvas>().enabled = false;
         //----------------------------------------------------------------------------------------------------------------------------------
 
+       
+
         StartCoroutine(trup_erase(5f));
     }
 
@@ -106,5 +122,10 @@ public class skelet_death : MonoBehaviour, IDeath
         clone_corpse.SetActive(true);
         //-----------------------------
 
+        
+    
+    
+    
+    
     }
 }
