@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
 using TMPro;
-using UnityEditor.UI;
 using UnityEngine;
 
 public class damage_item : MonoBehaviour
