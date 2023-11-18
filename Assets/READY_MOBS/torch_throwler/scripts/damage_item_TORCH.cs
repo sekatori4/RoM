@@ -16,15 +16,10 @@ public class damage_item_TORCH : MonoBehaviour
 
     [SerializeField] private AudioSource soundSource;
     [SerializeField] private AudioClip ZVUK_ORUZHIYA;
-
+    [SerializeField] private GameObject effect_popadania;
 
     [SerializeField] public float physic_damage;
     [SerializeField] public float mage_damage;
-
-
-
-    public GameObject effect_popadania;
-
 
 
     private void OnTriggerEnter(Collider other)
@@ -74,10 +69,11 @@ public class damage_item_TORCH : MonoBehaviour
         //}
         //------------------вызов в точке соприкосновения префаба ХИТ
 
-        soundSource.PlayOneShot(ZVUK_ORUZHIYA);
-
-        var effect = Instantiate(effect_popadania, transform.position, Quaternion.identity); //Создается экземпляр созданного префаба на том месте, куда попала пуля.
-
+        soundSource.PlayOneShot(ZVUK_ORUZHIYA);  
+             if (effect_popadania != null)    //--------------проверка НЕ пустое ли поле еффекта попадания.
+             {
+              var effect = Instantiate(effect_popadania, transform.position, Quaternion.identity); //Создается экземпляр созданного префаба на том месте, куда попала пуля.
+             }
         
        // Destroy(anim.GetBehaviour<atack_torch>().obj_torch, 0f);
     }

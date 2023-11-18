@@ -55,11 +55,11 @@ public class AttackBehaviour : StateMachineBehaviour
             float distance = Vector3.Distance(animator.transform.position, enemy[blizh].transform.position);
 
 
-            if (distance > 5)
+            if (distance > 3.5f)
                 animator.SetBool("isattack", false);
 
-            if (distance > 10)
-                animator.SetBool("isaggro", false);
+            //if (distance > 10)
+            //    animator.SetBool("isaggro", false);
 
 
         }

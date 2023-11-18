@@ -6380,8 +6380,8 @@ MonoBehaviour:
   friend4: 
   friend5: 
   soundSource: {fileID: 6340485097718387297}
-  ZVUK_ORUZHIYA: {fileID: 8300000, guid: de51757c16f755a49abdd40d70ab9b73, type: 3}
-  physic_damage: 15
+  ZVUK_ORUZHIYA: {fileID: 8300000, guid: fcf22ca49e8e90b4aa7b9b3868f3b450, type: 3}
+  physic_damage: 25
   mage_damage: 0
   effect_popadania: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
 --- !u!1 &5004536861559216062
@@ -12716,7 +12716,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -12767,6 +12767,7 @@ MonoBehaviour:
   mage_ARMOR_percent: 0
   healthSlider: {fileID: 5964485460019309172}
   WEAPON: {fileID: 5000848197569305622}
+  LOG_Damage: {fileID: 5734988693918683371, guid: 5da4040327eb4054e8dccadbe0690bcc, type: 3}
 --- !u!114 &957131856242194114
 MonoBehaviour:
   m_ObjectHideFlags: 0

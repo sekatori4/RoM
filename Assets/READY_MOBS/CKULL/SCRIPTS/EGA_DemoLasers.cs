@@ -83,7 +83,7 @@ public class EGA_DemoLasers : MonoBehaviour
             {
 
 
-                Debug.Log("DOSTAL" + MaxLength);
+               // Debug.Log("DOSTAL" + MaxLength);
 
 
                 Instance = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
@@ -115,11 +115,13 @@ public class EGA_DemoLasers : MonoBehaviour
 
     public IEnumerator SendHoming(GameObject rocket)
     {
-        while (Vector3.Distance(enemy_blizh.transform.position,rocket.transform.position) > 0.01f)
+        
+        
+        while (Vector3.Distance(enemy_blizh.transform.position + new Vector3 (0,0.3f,0),rocket.transform.position) > 0.01f)
 
         {
             rocket.transform.position +=
-                (enemy_blizh.transform.position - rocket.transform.position).normalized * 500 * Time.deltaTime;
+                (enemy_blizh.transform.position + new Vector3(0, 0.3f, 0) - rocket.transform.position).normalized * 500 * Time.deltaTime;
                                 
                   
 
@@ -127,7 +129,7 @@ public class EGA_DemoLasers : MonoBehaviour
 
         }
 
-        Destroy(rocket);
+        Destroy(rocket,1.2f);
 
     }
 

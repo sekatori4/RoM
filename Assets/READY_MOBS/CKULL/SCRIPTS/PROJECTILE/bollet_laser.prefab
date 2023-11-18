@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5468523266012561015}
   - component: {fileID: 1184245624904124527}
   - component: {fileID: 6087754831215282978}
-  - component: {fileID: -1636672008776859652}
   - component: {fileID: 8599304104081252000}
+  - component: {fileID: -8348657852246772589}
   m_Layer: 0
   m_Name: bollet_laser
   m_TagString: Untagged
@@ -101,34 +101,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-1636672008776859652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3050283766826184564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e9f5ad79936734592858103966f5e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  friend1: deff
-  friend2: castle
-  friend3: 
-  friend4: 
-  friend5: 
-  soundSource: {fileID: 8599304104081252000}
-  ZVUK_ORUZHIYA: {fileID: 0}
-  physic_damage: 0
-  mage_damage: 15
-  effect_popadania: {fileID: 0}
 --- !u!82 &8599304104081252000
 AudioSource:
   m_ObjectHideFlags: 0
@@ -140,22 +118,22 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.513
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
+  Priority: 121
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
+  rolloffMode: 1
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -185,7 +163,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -215,7 +193,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -225,3 +203,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-8348657852246772589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3050283766826184564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9225ac1eca9f5bf429e4e1b5caecf019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friend1: castle
+  friend2: deff
+  friend3: 
+  friend4: 
+  friend5: 
+  soundSource: {fileID: 8599304104081252000}
+  ZVUK_ORUZHIYA: {fileID: 8300000, guid: 28a6a59404b576c46b96f7ec6b4bdb16, type: 3}
+  effect_popadania: {fileID: 0}
+  physic_damage: 0
+  mage_damage: 7
