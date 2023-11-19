@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class crusader_death : MonoBehaviour, IDeath
 {
     [SerializeField] GameObject WEAPON;
-
+    public int cost_power;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,10 @@ public class crusader_death : MonoBehaviour, IDeath
 
     public void death_activate()
     {
+        
+        Camera.main.GetComponentInChildren<power_summons>().popolnenie_power(cost_power);
+
+
         GetComponent<Animator>().SetBool("isdeath", true);
 
         //-------------Êîëëàéäåğ ÂÛÊË ÃËÀÂÍÎÌÓ
@@ -47,7 +52,7 @@ public class crusader_death : MonoBehaviour, IDeath
         //----------------------------------------------------------------------------------------------------------------------------------
 
 
-        StartCoroutine(trup_erase(5f));
+        StartCoroutine(trup_erase(3f));
     }
 
 

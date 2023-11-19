@@ -12647,7 +12647,7 @@ Transform:
   m_GameObject: {fileID: 8828165986747082667}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.71, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12761,7 +12761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 573e4a3c5c77c0e44bb8fad49f2254e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_HP: 10000
+  MAX_HP: 800
   curHP: 0
   physic_ARMOR_percent: 50
   mage_ARMOR_percent: 0
@@ -12781,6 +12781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WEAPON: {fileID: 5000848197569305622}
+  cost_power: 2
 --- !u!208 &-3787002531528081037
 NavMeshObstacle:
   m_ObjectHideFlags: 0
