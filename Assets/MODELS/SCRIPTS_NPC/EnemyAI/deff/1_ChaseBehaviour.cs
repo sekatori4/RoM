@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class ChaseBehaviour : StateMachineBehaviour
 {
     NavMeshAgent agent;
-    float attackRange = 4;
+    float attackRange = 3f;
     GameObject[] enemy;
     NavMeshObstacle obtekat;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -52,12 +52,9 @@ public class ChaseBehaviour : StateMachineBehaviour
             if (distance2 > 40)
                 animator.SetBool("isaggro", false);
 
-
-
         }
 
-
-        
+                
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

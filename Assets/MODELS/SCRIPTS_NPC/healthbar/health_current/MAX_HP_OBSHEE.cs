@@ -37,8 +37,13 @@ public class MAX_HP_OBSHEE : MonoBehaviour
         //-----Коллайдер ВКЛ ОСНОВНОМУ (ФИКСАЦИЯ ПОЛУЧЕНИЯ УРОНА)
         gameObject.GetComponent<BoxCollider>().enabled = true;
         //--------включить коллайдер оружию
-
-        WEAPON.GetComponent<BoxCollider>().enabled = true;
+        if (WEAPON.GetComponent<BoxCollider>())
+        {
+            WEAPON.GetComponent<BoxCollider>().enabled = true;
+        }
+       
+        
+        
     }
 
     //public void TakeDamage(float phisical, float magical)
