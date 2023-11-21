@@ -45,7 +45,6 @@ public class torch_throw_projectile : MonoBehaviour
             //------------------------------------------------------кручение
             rocket.transform.rotation *= Quaternion.Euler(new Vector3(1f, 0, 0));
             
-
             //-----------------------------------------------------------------
 
             yield return null;
@@ -57,9 +56,6 @@ public class torch_throw_projectile : MonoBehaviour
     }
 
     
-
-
-
     public void dostal_fakel()
     {
         fakel.gameObject.SetActive(true);

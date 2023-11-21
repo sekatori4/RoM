@@ -11,6 +11,9 @@ public class MAX_HP_OBSHEE : MonoBehaviour
     [SerializeField] public float mage_ARMOR_percent;
     [SerializeField] private Slider healthSlider;   // œŒÀŒ— ¿ ’œ
     [SerializeField] GameObject WEAPON;           //  ŒÀÀ¿…ƒ≈– Œ–”∆»ﬂ  --------------->>>>>>>>>>>>>>>>>>>>> œŒƒ”Ã¿“‹
+    public int fiz_damage;
+    public int mage_damage;
+    
     public GameObject LOG_Damage;
 
     //Object script_smerti;
@@ -41,27 +44,22 @@ public class MAX_HP_OBSHEE : MonoBehaviour
         {
             WEAPON.GetComponent<BoxCollider>().enabled = true;
         }
-       
-        
-        
-    }
+             
+     }
 
-    //public void TakeDamage(float phisical, float magical)
-    //{
-    //    TakeDamagePhys(phisical);
-    //    TakeDamageMage(magical);
-    //}
-
+ 
     public void TakeDamagePhys(float damage)
     {
         if (damage > 0)
         {
             damage_after_armor = (damage - ((damage / 100) * physic_ARMOR_percent));
 
-            GameObject log_damage_damage = Instantiate(LOG_Damage, transform.position + new Vector3 (0,1.5f,0), Camera.main.transform.rotation) as GameObject;
+            // GameObject log_damage_damage = Instantiate(LOG_Damage, transform.position + new Vector3 (0,1.5f,0), Camera.main.transform.rotation) as GameObject;
+            GameObject log_damage_damage = Instantiate(LOG_Damage, transform.position + new Vector3(0, 1.5f, 0), Camera.main.transform.rotation) as GameObject;
+
             log_damage_damage.transform.GetChild(0).GetComponent<TextMesh>().text = damage_after_armor.ToString();
             Destroy(log_damage_damage, 0.85f);
-            //curHP = curHP - (damage - ((damage / 100) * physic_ARMOR_percent));
+           
             curHP = curHP - damage_after_armor;
             
             CheckIfDead();
@@ -76,7 +74,7 @@ public class MAX_HP_OBSHEE : MonoBehaviour
             GameObject log_damage_damage = Instantiate(LOG_Damage, transform.position + new Vector3(0, 1.5f, 0), Camera.main.transform.rotation) as GameObject;
             log_damage_damage.transform.GetChild(0).GetComponent<TextMesh>().text = damage_after_armor.ToString();
             Destroy(log_damage_damage,0.85f);
-            //curHP = curHP - (damage - ((damage / 100) * mage_ARMOR_percent));
+         
             curHP = curHP - damage_after_armor;
             CheckIfDead();
         }

@@ -26,16 +26,17 @@ public class damage_item_melee : MonoBehaviour
 
     public GameObject effect_popadania;
 
-
+    public void Start()
+    {
+        physic_damage = gameObject.GetComponentInParent<MAX_HP_OBSHEE>().fiz_damage;
+        mage_damage = gameObject.GetComponentInParent<MAX_HP_OBSHEE>().mage_damage;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-
+        
         string SELF = transform.root.gameObject.tag;
-
-
         string vrag = other.transform.root.gameObject.tag;               // выбран ТЭГ ГЛАВНОГО объекта по КОЛЛАЙДЕРУ по которому попало оружие ;
-
 
         if (vrag != SELF                                              // Если попало оружие не по своему КОЛЛАЙДЕРУ и не по КОЛЛАЙДЕРУ СОЮЗНИКОВ
             && vrag != friend1 
@@ -46,7 +47,6 @@ public class damage_item_melee : MonoBehaviour
                 {
 
 
-
             if (other.tag != "corpse")
             {
                 other.GetComponentInParent<MAX_HP_OBSHEE>().TakeDamagePhys(physic_damage);
@@ -55,9 +55,7 @@ public class damage_item_melee : MonoBehaviour
                 Explode();
             }
 
-
             //other.GetComponentInParent<MAX_HP_OBSHEE>().TakeDamage(physic_damage, mage_damage);
-
         }
        
     }
@@ -66,7 +64,6 @@ public class damage_item_melee : MonoBehaviour
     void Explode()
 
     {
-
         //RaycastHit hit;
         //if (Physics.Raycast(transform.position, transform.forward, out hit))
         //{

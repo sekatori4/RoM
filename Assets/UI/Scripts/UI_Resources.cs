@@ -24,10 +24,6 @@ public class UI_Resources : MonoBehaviour
         souls.text = cur_souls.ToString();
 
 
-
-
-
-
     }
 
 

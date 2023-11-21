@@ -224,4 +224,4 @@ MonoBehaviour:
   ZVUK_ORUZHIYA: {fileID: 8300000, guid: 28a6a59404b576c46b96f7ec6b4bdb16, type: 3}
   effect_popadania: {fileID: 0}
   physic_damage: 0
-  mage_damage: 7
+  mage_damage: 50

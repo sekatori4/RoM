@@ -55,6 +55,7 @@ public class BUTTON1_TANK : MonoBehaviour
             UI_MAIN.GetComponentInChildren<power_summons>().minus_power(spawner_init.GetComponent<SPAWNER>().NPC10.GetComponent<crusader_death>().cost_power);
 
             GameObject MOBs = Instantiate(spawner_init.GetComponent<SPAWNER>().NPC10, spawner_init.GetComponent<SPAWNER>().spawnPoint1.transform);
+
             MOBs.transform.parent = null;
 
         }
