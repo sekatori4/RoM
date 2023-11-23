@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -15,20 +16,18 @@ public class atack_torch : StateMachineBehaviour
     NavMeshAgent agent;
     NavMeshObstacle obtekat;
     float attackRange ;
-    public Vector3 target_kidat;
+
+    public Vector3 TargetPosition;
     public GameObject ruka_kidat;
     public GameObject boolet;
     public bool fakela_est;
-        
+    
+    
+
 
     //--------------------------------------------------------------------------------------------------------------------------
 
-    // (target_kidat, ruka_kidat.position, 0.5f);
-   // boolet, ruka_kidat.position, 
-
-
-
-
+ 
     public void LaunchProjectale(Animator animator)
     {
        animator.GetComponent<torch_throw_projectile>().DoCoroutine();
@@ -93,9 +92,8 @@ public class atack_torch : StateMachineBehaviour
 
             }
 
-
-            //target_kidat = enemy[blizh].transform.position + new Vector3 (0, 0.5f, 0);
-            target_kidat = enemy[blizh].GetComponentInChildren<Renderer>().bounds.center;
+            Vector3 targetPosition = enemy[blizh].GetComponentInChildren<Renderer>().bounds.center;
+            animator.GetComponent<torch_throw_projectile>().SetTarget(targetPosition);
 
             //----------------------------------
 

@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
+
+
 
 public class torch_throw_projectile : MonoBehaviour
 {
@@ -13,7 +10,13 @@ public class torch_throw_projectile : MonoBehaviour
     public GameObject ogon;
     public GameObject pointshoot;
     public Animator anim;
-    
+    private Vector3 target; // GPT
+    private Vector3 curtarget;
+   
+    public void SetTarget(Vector3 newTarget)
+{
+    target = newTarget;
+}
 
     public void KINUT()
     {
@@ -21,35 +24,35 @@ public class torch_throw_projectile : MonoBehaviour
         anim.GetBehaviour<atack_torch>().LaunchProjectale(anim);
     }
 
+    
     public void DoCoroutine()
     {
         GameObject rocket = Instantiate(anim.GetBehaviour<atack_torch>().boolet, anim.GetBehaviour<atack_torch>().ruka_kidat.transform.position, anim.GetBehaviour<atack_torch>().boolet.transform.rotation);
-        rocket.transform.LookAt(anim.GetBehaviour<atack_torch>().target_kidat);   //---------смотреть на цель прямо ( нверное по ИКСУ)
-
+              
+        rocket.transform.LookAt(target);
         StartCoroutine(SendHoming(rocket));
-
+        curtarget = target;
     }
 
    
     public IEnumerator SendHoming(GameObject rocket)
     {
-        while (Vector3.Distance(anim.GetBehaviour<atack_torch>().target_kidat, rocket.transform.position)>0.3f)
-            
+         while (curtarget !=null && Vector3.Distance(target, rocket.transform.position)>0.3f)  
         {
-            rocket.transform.position += 
-                (anim.GetBehaviour<atack_torch>().target_kidat -rocket.transform.position).normalized *15*Time.deltaTime;
-
-
-            // rocket.transform.LookAt(anim.GetBehaviour<atack_torch>().target_kidat);   //---------смотреть на цель прямо ( нверное по ИКСУ)
+           
+            rocket.transform.position += (curtarget - rocket.transform.position).normalized * 15 * Time.deltaTime;
 
             //------------------------------------------------------кручение
             rocket.transform.rotation *= Quaternion.Euler(new Vector3(1f, 0, 0));
-            
+
             //-----------------------------------------------------------------
+                             
 
             yield return null;
          
         }
+        
+        
 
         Destroy(rocket,1f);
 

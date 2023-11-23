@@ -61,7 +61,7 @@ public class MAX_HP_OBSHEE : MonoBehaviour
             Destroy(log_damage_damage, 0.85f);
            
             curHP = curHP - damage_after_armor;
-            
+            CheckIfhalfHP_fire();
             CheckIfDead();
         }
     }
@@ -76,6 +76,7 @@ public class MAX_HP_OBSHEE : MonoBehaviour
             Destroy(log_damage_damage,0.85f);
          
             curHP = curHP - damage_after_armor;
+            CheckIfhalfHP_fire();
             CheckIfDead();
         }
     }
@@ -84,9 +85,18 @@ public class MAX_HP_OBSHEE : MonoBehaviour
     {
         if (curHP <= 0 && gameObject.tag != "corpse")
         {
-            GetComponent<IDeath>().death_activate();
+             GetComponent<IDeath>().death_activate();
         }
     }
+
+    private void CheckIfhalfHP_fire()
+    {
+        if (curHP <= MAX_HP/2 && gameObject.tag == "castle")
+        {
+           gameObject.GetComponent<ParticleSystem>().Play();
+        }
+    }
+
 
     private void OnGUI()
     {
