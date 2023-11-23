@@ -1,13 +1,7 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class atack_torch : StateMachineBehaviour 
+public class atack_torch : StateMachineBehaviour
 {
     GameObject[] deff;
     GameObject[] castle;
@@ -15,35 +9,24 @@ public class atack_torch : StateMachineBehaviour
 
     NavMeshAgent agent;
     NavMeshObstacle obtekat;
-    float attackRange ;
+    float attackRange;
 
     public Vector3 TargetPosition;
     public GameObject ruka_kidat;
     public GameObject boolet;
     public bool fakela_est;
-    
-    
 
+    private GameObject target;
 
-    //--------------------------------------------------------------------------------------------------------------------------
-
- 
     public void LaunchProjectale(Animator animator)
     {
-       animator.GetComponent<torch_throw_projectile>().DoCoroutine();
+        animator.GetComponent<torch_throw_projectile>().DoCoroutine(target);
     }
 
-    //----------------------------------------------------------------------------------------------------------------------------------
-   
-    //----------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -59,7 +42,6 @@ public class atack_torch : StateMachineBehaviour
 
 
         if (deff.Length > 0)
-
         {
             attackRange = 22;
             enemy = deff;
@@ -79,26 +61,20 @@ public class atack_torch : StateMachineBehaviour
 
         else
         {
-
-            int blizh = 0;
+            int closestIndex = 0;
             for (int i = 0; i < enemy.Length; i++)
             {
-
-                if (Vector3.Distance(enemy[i].transform.position, animator.transform.position) < Vector3.Distance(enemy[blizh].transform.position, animator.transform.position))
+                if (Vector3.Distance(enemy[i].transform.position, animator.transform.position) < Vector3.Distance(enemy[closestIndex].transform.position, animator.transform.position))
                 {
-                    blizh = i;
+                    closestIndex = i;
                 }
-
-
             }
 
-            Vector3 targetPosition = enemy[blizh].GetComponentInChildren<Renderer>().bounds.center;
-            animator.GetComponent<torch_throw_projectile>().SetTarget(targetPosition);
+            target = enemy[closestIndex];
 
             //----------------------------------
 
-
-            float distance = Vector3.Distance(animator.transform.position, enemy[blizh].transform.position);
+            float distance = Vector3.Distance(animator.transform.position, enemy[closestIndex].transform.position);
 
             if (distance > attackRange && fakela_est == true)
             {
@@ -107,20 +83,17 @@ public class atack_torch : StateMachineBehaviour
             }
             else
             {
-                animator.transform.LookAt(enemy[blizh].transform);  //-----<<< Ñìîòðèò ÍÀ ÖÅËÜ
+                animator.transform.LookAt(enemy[closestIndex].transform);  //-----<<< Ñìîòðèò ÍÀ ÖÅËÜ
 
                 //--------------ÂÊËÞ×ÈÒÜ ÍÀÂÌÅØ--ÎÁÒÝÉÊË
                 agent.enabled = false;
                 obtekat.enabled = true;
 
             }
-                      
+
         }
-           
+
     }
-
-    
-
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
