@@ -22,11 +22,15 @@ public class damage_item_TORCH : MonoBehaviour
     [SerializeField] public float mage_damage;
 
 
+    public void Start()
+    {
+        
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-
+        
         string SELF = transform.root.gameObject.tag;
-
 
         string vrag = other.transform.root.gameObject.tag;               // выбран ТЭГ ГЛАВНОГО объекта по КОЛЛАЙДЕРУ по которому попало оружие ;
 
@@ -39,8 +43,6 @@ public class damage_item_TORCH : MonoBehaviour
             && vrag != friend5)
                 {
 
-
-
             if (other.tag != "corpse" && other.tag != "floor")
             {
                 other.GetComponentInParent<MAX_HP_OBSHEE>().TakeDamagePhys(physic_damage);
@@ -50,23 +52,14 @@ public class damage_item_TORCH : MonoBehaviour
                 Explode();
                 
             }
-
-
-            
         }
-       
     }
 
 
     void Explode()
 
     {
-
-        //RaycastHit hit;
-        //if (Physics.Raycast(transform.position, transform.forward, out hit))
-        //{
-        //    Debug.Log("Point of contact: " + hit.point);
-        //}
+                
         //------------------вызов в точке соприкосновения префаба ХИТ
 
         soundSource.PlayOneShot(ZVUK_ORUZHIYA);  

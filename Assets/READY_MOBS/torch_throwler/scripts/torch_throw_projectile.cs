@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
+
+
 
 public class torch_throw_projectile : MonoBehaviour
 {
@@ -13,7 +10,7 @@ public class torch_throw_projectile : MonoBehaviour
     public GameObject ogon;
     public GameObject pointshoot;
     public Animator anim;
-    
+    private GameObject target; // GPT
 
     public void KINUT()
     {
@@ -21,43 +18,33 @@ public class torch_throw_projectile : MonoBehaviour
         anim.GetBehaviour<atack_torch>().LaunchProjectale(anim);
     }
 
-    public void DoCoroutine()
+
+    public void DoCoroutine(GameObject target)
     {
+        this.target = target;
         GameObject rocket = Instantiate(anim.GetBehaviour<atack_torch>().boolet, anim.GetBehaviour<atack_torch>().ruka_kidat.transform.position, anim.GetBehaviour<atack_torch>().boolet.transform.rotation);
-        rocket.transform.LookAt(anim.GetBehaviour<atack_torch>().target_kidat);   //---------смотреть на цель прямо ( нверное по ИКСУ)
 
+        rocket.transform.LookAt(target.GetComponentInChildren<Renderer>().bounds.center);
         StartCoroutine(SendHoming(rocket));
-
     }
 
-   
+
     public IEnumerator SendHoming(GameObject rocket)
     {
-        while (Vector3.Distance(anim.GetBehaviour<atack_torch>().target_kidat, rocket.transform.position)>0.3f)
-            
+        while (Vector3.Distance(target.GetComponentInChildren<Renderer>().bounds.center, rocket.transform.position) > 0.3f)
         {
-            rocket.transform.position += 
-                (anim.GetBehaviour<atack_torch>().target_kidat -rocket.transform.position).normalized *15*Time.deltaTime;
-
-
-            // rocket.transform.LookAt(anim.GetBehaviour<atack_torch>().target_kidat);   //---------смотреть на цель прямо ( нверное по ИКСУ)
+            rocket.transform.position += (target.GetComponentInChildren<Renderer>().bounds.center - rocket.transform.position).normalized * 15 * Time.deltaTime;
 
             //------------------------------------------------------кручение
             rocket.transform.rotation *= Quaternion.Euler(new Vector3(1f, 0, 0));
-            
 
             //-----------------------------------------------------------------
 
             yield return null;
-         
         }
 
-        Destroy(rocket,1f);
-
+        Destroy(rocket, 1f);
     }
-
-    
-
 
 
     public void dostal_fakel()
@@ -71,5 +58,5 @@ public class torch_throw_projectile : MonoBehaviour
         ogon.gameObject.SetActive(true);
     }
 
-    
+
 }

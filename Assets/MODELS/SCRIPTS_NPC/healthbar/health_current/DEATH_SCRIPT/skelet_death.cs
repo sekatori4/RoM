@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class skelet_death : MonoBehaviour, IDeath
 {
@@ -8,8 +9,8 @@ public class skelet_death : MonoBehaviour, IDeath
     public int get_souls;
     bool pidor;
     Camera camera_ui;
-   
-   
+
+    public int exp_toDIE = 13;
 
     private void Update()
     {
@@ -27,15 +28,17 @@ public class skelet_death : MonoBehaviour, IDeath
         camera_ui = Camera.main;
 
         camera_ui.GetComponentInChildren<UI_Resources>().Getsouls(get_souls);
+        //-------------------------------------->>получить опыт
+        
+        GameObject mainUI = GameObject.FindGameObjectWithTag("mainUI");
+        mainUI.SendMessage("GainEXPFromEnemy", exp_toDIE);
+
         //----------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
 
         //---------Выключить аниматор
         GetComponent<Animator>().enabled = false;
-
+        //---------Выключить агент
+        GetComponent<NavMeshAgent>().enabled = false;
 
 
         //---------->>>  РИГИБОДИ ВКЛ ВСЕМ

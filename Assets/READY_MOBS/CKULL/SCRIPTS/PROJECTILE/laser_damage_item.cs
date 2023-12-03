@@ -29,7 +29,7 @@ public class laser_damage_item : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        
         string SELF = transform.root.gameObject.tag;
 
 

@@ -55,20 +55,11 @@ public class VolumetricFire : MonoBehaviour
 
     private void RenderFlames(ScriptableRenderContext context, Camera camera)
     {
-        bool isVisible = IsVisible(camera, boundaryCollider.bounds);
+       // bool isVisible = IsVisible(camera, boundaryCollider.bounds);
 
-        // Internal Count = 
-        // Thickness 1 : 0
-        // Thickness 2 : 2
-        // Thickness 3 : 4
-        // Thickness 4 : 6
+ 
         internalCount = (thickness - 1) * 2;
 
-        // Gap = 
-        // Thickness 1 : 0
-        // Thickness 2 : 0.5f
-        // Thickness 3 : 0.25f
-        // Thickness 4 : 0.125f
         float gap = 0;
         if (internalCount > 0)
         {
