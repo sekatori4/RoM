@@ -2544,9 +2544,9 @@ MonoBehaviour:
   curHP: 0
   physic_ARMOR_percent: 0
   mage_ARMOR_percent: 0
-  skelet_poivlenie: {fileID: 0}
   healthSlider: {fileID: 5485711994560033876}
   WEAPON: {fileID: 3460934613343717303}
+  LOG_Damage: {fileID: 0}
 --- !u!114 &3195451275326625504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2560,7 +2560,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WEAPON: {fileID: 3460934613343717303}
-  skelet_poivlenie: {fileID: 919132149155446097, guid: 4b5dcacea81e7b64fbd6d1417e73910d, type: 3}
+  ostanki: {fileID: 0}
+  get_souls: 0
 --- !u!1 &8537155835227183114
 GameObject:
   m_ObjectHideFlags: 0
