@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.tojynick.shaders.stylizedwater": "https://github.com/tojynick/Stylized-Water-Shader-Unity-URP.git",
     "com.unity.ai.navigation": "1.1.5",
     "com.unity.collab-proxy": "2.1.0",
     "com.unity.feature.development": "1.0.1",
